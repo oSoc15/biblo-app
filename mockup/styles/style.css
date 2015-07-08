@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box; }
+
 .startpage #page-wrapper .text-center {
   text-align: center; }
 .startpage #page-wrapper #header {
@@ -11,6 +14,45 @@
   height: auto; }
 .startpage #page-wrapper #content .row {
   margin: 15px 0 25px; }
+  .startpage #page-wrapper #content .row .button {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 7px solid #d9d9d9;
+    line-height: calc(80px + 14px);
+    text-align: center;
+    background: #ffffff;
+    float: left; }
+    .startpage #page-wrapper #content .row .button .icon {
+      width: 50px;
+      height: 50px; }
+    .startpage #page-wrapper #content .row .button .like {
+      color: #2cb145;
+      padding: 12px 15px 0 15px; }
+      .startpage #page-wrapper #content .row .button .like #like {
+        fill: currentColor; }
+    .startpage #page-wrapper #content .row .button .dislike {
+      position: relative;
+      padding: 15px;
+      left: 22px; }
+      .startpage #page-wrapper #content .row .button .dislike #cross {
+        position: absolute;
+        display: block;
+        width: 7px;
+        height: 50px;
+        border-radius: 4px;
+        background: #ff5a00;
+        transform: rotate(45deg); }
+        .startpage #page-wrapper #content .row .button .dislike #cross:after {
+          content: "";
+          position: absolute;
+          display: block;
+          width: 7px;
+          height: 50px;
+          border-radius: 4px;
+          background: #ff5a00;
+          transform: rotate(90deg); }
   .startpage #page-wrapper #content .row .btn, .startpage #page-wrapper #content .row .btn-no, .startpage #page-wrapper #content .row .btn-yes {
     border: 3px solid;
     border-radius: 50%;
@@ -18,9 +60,9 @@
     width: 50px;
     padding-top: 10px; }
   .startpage #page-wrapper #content .row .btn-no {
-    border-color: #C71412; }
+    border-color: #ff5a00; }
   .startpage #page-wrapper #content .row .btn-yes {
-    border-color: #3BB246; }
+    border-color: #2cb145; }
 
 .suggestion #page-wrapper .text-center {
   text-align: center; }
@@ -49,5 +91,10 @@
   height: auto; }
 .detail #page-wrapper #content .row {
   margin: 15px 0 25px; }
+  .detail #page-wrapper #content .row .information {
+    text-align: left; }
+    .detail #page-wrapper #content .row .information .title {
+      color: #ff5a00;
+      font-weight: 100; }
 
 /*# sourceMappingURL=style.css.map */

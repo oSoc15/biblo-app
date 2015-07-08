@@ -1,0 +1,61 @@
+$border-color: #d9d9d9;
+$color-green: #2cb145;
+$color-red: #ff5a00;
+
+
+body {
+  background: #f5f5f5;
+}
+
+.button {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 7px solid $border-color;
+  line-height: calc(80px + 14px);
+  text-align: center;
+  background: #ffffff;
+  float: left;
+
+  .icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .like {
+    color: $color-green;
+    padding: 12px 15px 0 15px;
+
+    #like {
+      fill: currentColor;
+    }
+  }
+
+  .dislike {
+    position: relative;
+    padding: 15px;
+    left: 22px;
+
+    #cross {
+      position: absolute;
+      display: block;
+      width: 7px;
+      height: 50px;
+      border-radius: 4px;
+      background: $color-red;
+      transform: rotate(45deg);
+
+      &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 7px;
+        height: 50px;
+        border-radius: 4px;
+        background: $color-red;
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
