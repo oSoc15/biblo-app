@@ -1,0 +1,122 @@
+//Created by Wesley Vanbrabant
+//Copyright: open Summer of code 2015
+$font-stack: helvetica, sans-serif;
+$color-red: #C71412;
+$color-green: #3BB246;
+$color-header-bg: #42413B;
+$color-white: #FFF;
+$border-radius: 10px;
+
+.startpage {
+  #page-wrapper {
+    .text-center {
+      text-align: center;
+    }
+
+    #header {
+      background-color: $color-header-bg;
+      margin-bottom: 10%;
+
+      h1 {
+        font-family: $font-stack;
+        color: $color-white;
+      }
+    }
+
+    #content {
+      img.resize {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .picture-container {
+      }
+
+      .row {
+        margin: 15px 0 25px;
+
+        .btn {
+          border: 3px solid;
+          border-radius: 50%;
+          height: 50px;
+          width: 50px;
+          padding-top: 10px;
+        }
+
+        .btn-no {
+          @extend .btn;
+          border-color: $color-red;
+        }
+
+        .btn-yes {
+          @extend .btn;
+          border-color: $color-green;
+        }
+      }
+    }
+  }
+}
+
+.suggestion {
+  #page-wrapper {
+    .text-center {
+      text-align: center;
+    }
+
+    #header {
+      background-color: $color-header-bg;
+      margin-bottom: 10%;
+
+      h1 {
+        font-family: $font-stack;
+        color: $color-white;
+      }
+    }
+
+    #content {
+      img.resize {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .picture-container {
+      }
+
+      .row {
+        margin: 15px 0 25px;
+      }
+    }
+  }
+}
+
+.detail {
+  #page-wrapper {
+    .text-center {
+      text-align: center;
+    }
+
+    #header {
+      background-color: $color-header-bg;
+      margin-bottom: 10%;
+
+      h1 {
+        font-family: $font-stack;
+        color: $color-white;
+      }
+    }
+
+    #content {
+      img.resize {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .picture-container {
+      }
+
+      .row {
+        margin: 15px 0 25px;
+      }
+    }
+  }
+}

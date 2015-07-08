@@ -1,0 +1,53 @@
+.startpage #page-wrapper .text-center {
+  text-align: center; }
+.startpage #page-wrapper #header {
+  background-color: #42413B;
+  margin-bottom: 10%; }
+  .startpage #page-wrapper #header h1 {
+    font-family: helvetica, sans-serif;
+    color: #FFF; }
+.startpage #page-wrapper #content img.resize {
+  max-width: 100%;
+  height: auto; }
+.startpage #page-wrapper #content .row {
+  margin: 15px 0 25px; }
+  .startpage #page-wrapper #content .row .btn, .startpage #page-wrapper #content .row .btn-no, .startpage #page-wrapper #content .row .btn-yes {
+    border: 3px solid;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    padding-top: 10px; }
+  .startpage #page-wrapper #content .row .btn-no {
+    border-color: #C71412; }
+  .startpage #page-wrapper #content .row .btn-yes {
+    border-color: #3BB246; }
+
+.suggestion #page-wrapper .text-center {
+  text-align: center; }
+.suggestion #page-wrapper #header {
+  background-color: #42413B;
+  margin-bottom: 10%; }
+  .suggestion #page-wrapper #header h1 {
+    font-family: helvetica, sans-serif;
+    color: #FFF; }
+.suggestion #page-wrapper #content img.resize {
+  max-width: 100%;
+  height: auto; }
+.suggestion #page-wrapper #content .row {
+  margin: 15px 0 25px; }
+
+.detail #page-wrapper .text-center {
+  text-align: center; }
+.detail #page-wrapper #header {
+  background-color: #42413B;
+  margin-bottom: 10%; }
+  .detail #page-wrapper #header h1 {
+    font-family: helvetica, sans-serif;
+    color: #FFF; }
+.detail #page-wrapper #content img.resize {
+  max-width: 100%;
+  height: auto; }
+.detail #page-wrapper #content .row {
+  margin: 15px 0 25px; }
+
+/*# sourceMappingURL=style.css.map */
