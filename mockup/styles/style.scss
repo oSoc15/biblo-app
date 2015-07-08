@@ -8,6 +8,10 @@ $color-header-bg: #42413B;
 $color-white: #FFF;
 $border-radius: 10px;
 
+*{
+    box-sizing: border-box;
+}
+
 .startpage {
   #page-wrapper {
     .text-center {
