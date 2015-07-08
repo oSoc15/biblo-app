@@ -59,7 +59,7 @@ $thin-font: 100;
 
                     .like {
                         color: $color-green;
-                        padding: 12px 15px 0 15px;
+                        padding: 2px 0 0 12px;
 
                         #like {
                             fill: currentColor;
@@ -68,7 +68,7 @@ $thin-font: 100;
 
                     .dislike {
                         position: relative;
-                        padding: 15px;
+                        padding: 10px 0 0 7px;
                         left: 22px;
 
                         #cross {
