@@ -15,7 +15,9 @@
   color: #fff;
   width: 360px;
   height: 360px;
-
+  top: 50px;
+  left: 50px;
+  position: absolute;
   cursor: hand;
 }
 .rotate-left {
