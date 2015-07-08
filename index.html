@@ -1,0 +1,257 @@
+<!--
+Author Shaun Janssens
+Copyright oSoc15
+-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Test Kinder-Tinder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="stylesheets/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="mockup/styles/style.css" rel="stylesheet">
+    <link href="mockup/styles/swipe.css" rel="stylesheet">
+    <link href="stylesheets/jquery.mobile.min.css" rel="stylesheet">
+    
+    <style>
+        .page-wrapper {
+            margin-top: 60px;
+        }
+        #header {
+            display: none;
+        }
+        .buddy {
+            position: absolute;
+        }
+
+        #step1 .buttons {
+            padding-top: 370px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="step startpage" id="step1" data-index="1">
+        <!--full page wrapper-->
+        <div class="page-wrapper" id="page-wrapper">
+            <!--header-->
+            <div class="container-fluid text-center" id="header">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h1>KinderTinder</h1>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container text-center" id="content">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 "></div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 picture-container">
+                        <div id="container">
+                            <div class="buddy" style="display: block;">
+                                <div class="avatar" style="display: block; background-image: url(mockup/content/images/test-picture.jpg); z-index: 4"></div>
+                            </div>
+                            <div class="buddy">
+                                <div class="avatar" style="display: block; background-image: url(mockup/content/images/test-picture.jpg); z-index: 3"></div>
+                            </div>
+                            <div class="buddy">
+                                <div class="avatar" style="display: block; background-image: url(mockup/content/images/test-picture.jpg); z-index: 2"></div>
+                            </div>
+                            <div class="buddy">
+                                <div class="avatar" style="display: block; background-image: url(mockup/content/images/test-picture.jpg); z-index: 1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 "></div>
+                </div>
+
+                <div class="row buttons">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-md-offset-1 col-lg-1">
+                        <div class="button yes">
+                            <div class="icon like">
+                                <svg enable-background="new 0 0 32 32" id="heart" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path id="like" d="M22.229,4.514c-2.547,0-4.85,1.334-5.919,3.414c-1.07-2.079-3.401-3.414-5.948-3.414  c-3.981,0-9.319,3.209-6.888,11.963C6.251,25.034,16.31,30.065,16.31,30.063c0,0.002,10.044-5.029,12.821-13.586  C31.562,7.723,26.209,4.514,22.229,4.514z"/></svg>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-1 col-lg-2"></div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div class="button no">
+                            <div class="icon dislike">
+                                <div id="cross"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="step suggestion" id="step2" data-index="2">
+        <div class="page-wrapper" id="page-wrapper">
+            <!--header-->
+            <div class="container-fluid text-center" id="header">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h1>KinderTinder</h1>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container text-center" id="content">
+                <div class="row">
+                    <div class="col-md-3 book">
+                        <img src="mockup/content/images/bookcovers/Harry_Potter_EDV.png" alt="" class="resize">
+                    </div>
+
+                    <div class="col-md-3 book">
+                        <img src="mockup/content/images/bookcovers/HLVEL.png" alt="" class="resize">
+                    </div>
+
+                    <div class="col-md-3 book">
+                        <img src="mockup/content/images/bookcovers/Harry_Potter_EDV.png" alt="" class="resize">
+                    </div>
+
+                    <div class="col-md-3 book">
+                        <img src="mockup/content/images/bookcovers/HLVEL.png" alt="" class="resize">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 book">
+                        <img src="mockup/content/images/bookcovers/Harry_Potter_EDV.png" alt="" class="resize">
+                    </div>
+
+                    <div class="col-md-3 book">
+                        <img src="mockup/content/images/bookcovers/HLVEL.png" alt="" class="resize">
+                    </div>
+
+                    <div class="col-md-3 book">
+                        <img src="mockup/content/images/bookcovers/Harry_Potter_EDV.png" alt="" class="resize">
+                    </div>
+
+                    <div class="col-md-3 book">
+                        <img src="mockup/content/images/bookcovers/HLVEL.png" alt="" class="resize">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step detail" id="step3" data-index="3">
+            <div class="page-wrapper" id="page-wrapper">
+                <!--header-->
+                <div class="container-fluid text-center" id="header">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <h1>KinderTinder</h1>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container text-center" id="content">
+                    <div class="row">
+                        <div class="col-md-6 bookcover">
+                            <img src="content/images/bookcovers/Harry_Potter_EDV.png" alt="Cover">
+                        </div>
+
+                        <div class="col-md-6 information">
+                            <h1 class="title">Harry Potter en de Vuurbeker</h1>
+                            <p class="synopsis">Als tovenaar-in-de-dop Harry Potter deelneemt aan een internationaal tovenaarstoernooi, dreigt er onverwacht gevaar. (samenvatting)</p>
+                            <p class="writtenby">Geschreven door <strong>J.K. Rowling</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript/jquery.min.js"></script>
+    <script src="javascript/jquery.mobile.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var step1 = $("#step1");
+            var step2 = $("#step2");
+            var overlay = $("#step3");
+
+            var page = 1;
+
+            $(".step").hide();
+            step1.show();
+
+            $("#step2 .book").click(function() {
+                
+            })
+
+            function changePage(id) {
+                if(id == "step2") {
+                    setTimeout(function() {
+                        step1.fadeOut(300, function() {
+                            step2.fadeIn();
+                        });
+                    }, 300);
+                }
+            }
+
+            $(".buddy").on("swiperight",function(){
+                $(this).addClass('rotate-left').delay(700).fadeOut(1);
+                $('.buddy').find('.status').remove();
+
+                $(this).append('<div class="status like">Like!</div>');
+                if ( $(this).is(':last-child') ) {
+                    $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+                } else {
+                    $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
+                }
+            });
+
+            $(".buddy").on("swipeleft",function(){
+                $(this).addClass('rotate-right').delay(700).fadeOut(1);
+                $('.buddy').find('.status').remove();
+                $(this).append('<div class="status dislike">Dislike!</div>');
+
+                if ( $(this).is(':last-child') ) {
+                    $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+                    $(this).remove();
+                    changePage("step2");
+                } else {
+                    $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
+                }
+            });
+
+            $(".yes").on("click",function(){
+                $('.buddy').addClass('rotate-left').delay(700).fadeOut(1);
+                $('.buddy').find('.status').remove();
+                $('.buddy').append('<div class="status like">Like!</div>');
+
+                // if ( $(this).is(':last-child') ) {
+                //   $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+                //  } else {
+                //     $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
+                //  }
+            });
+
+            $(".no").on("click",function(){
+                $('.buddy').addClass('rotate-right').delay(700).fadeOut(1);
+                $('.buddy').find('.status').remove();
+                $('.buddy').append('<div class="status dislike">Dislike!</div>');
+
+                // if ( $(this).is(':last-child') ) {
+                //  $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+                //   alert('Last one');
+                //  } else {
+                //     $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
+                // }
+            });
+        });
+    </script>
+
+</body>
+</html>
