@@ -91,5 +91,10 @@
   height: auto; }
 .detail #page-wrapper #content .row {
   margin: 15px 0 25px; }
+  .detail #page-wrapper #content .row .information {
+    text-align: left; }
+    .detail #page-wrapper #content .row .information .title {
+      color: #ff5a00;
+      font-weight: 100; }
 
 /*# sourceMappingURL=style.css.map */
