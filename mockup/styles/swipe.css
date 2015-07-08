@@ -1,5 +1,5 @@
 
-#container {
+#container-swipebox {
   list-style-type: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -10,11 +10,9 @@
 }
 .buddy {
   display: none;
-  background: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   color: #fff;
-  padding: 20px;
   width: 360px;
   height: 360px;
   top: 50px;
@@ -46,28 +44,4 @@
   background-size: 100% auto !important;
   background-position: center;
  background-repeat: no-repeat;
-}
-.like {
-  border-radius: 5px;
-  padding: 5px 10px;
-  border: 2px solid green;
-  color: green;
-  text-transform: uppercase;
-  font-size: 15px;
-  position: absolute;
-  top: 50px;
-  right: 40px;
-  text-shadow: none;
-}
-.dislike {
-  border-radius: 5px;
-  padding: 5px 10px;
-  border: 2px solid red;
-  color: red;
-  text-transform: uppercase;
-  font-size: 15px;
-  position: absolute;
-  top: 50px;
-  left: 40px;
-  text-shadow: none;
 }
