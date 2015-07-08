@@ -27,6 +27,48 @@ Copyright oSoc15
             padding-top: 370px;
         }
 
+        .detail {
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: rgba(255,255,255,.9);
+        }
+        
+        .detail .bookcover img {
+            height: 655px;
+            width: auto;
+        }
+
+        .detail h1 {
+            margin-top: 0;
+        }
+
+        .button.back {
+            background: none;
+            padding: 10px 40px;
+            font-weight: bold;
+            display: inline-block;
+            border-radius: 3px;
+            text-shadow: none;
+            border: 2px solid #FF5A00;
+            margin-top: 40;
+            font-size: 14px;
+        }
+
+        .buttons .like {
+            background: url("images/like.png") no-repeat;
+            width: 41px;
+            height: 38px;
+            margin: 15px 0 0 13px;
+        }
+
+        .buttons .dislike {
+            background: url("images/dislike.png") no-repeat;
+            width: 38px;
+            height: 37px;
+            margin: 15px 0 0 14px;
+            left: 0 !important;
+        }
+
 
     </style>
 </head>
@@ -72,18 +114,14 @@ Copyright oSoc15
 
                     <div class="col-xs-1 col-sm-1 col-md-1 col-md-offset-1 col-lg-1">
                         <div class="button yes">
-                            <div class="icon like">
-                                <svg enable-background="new 0 0 32 32" id="heart" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path id="like" d="M22.229,4.514c-2.547,0-4.85,1.334-5.919,3.414c-1.07-2.079-3.401-3.414-5.948-3.414  c-3.981,0-9.319,3.209-6.888,11.963C6.251,25.034,16.31,30.065,16.31,30.063c0,0.002,10.044-5.029,12.821-13.586  C31.562,7.723,26.209,4.514,22.229,4.514z"/></svg>
-                            </div>
+                            <div class="icon like"></div>
                         </div>
 
                     </div>
                     <div class="col-xs-2 col-sm-2 col-md-1 col-lg-2"></div>
                     <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                         <div class="button no">
-                            <div class="icon dislike">
-                                <div id="cross"></div>
-                            </div>
+                            <div class="icon dislike"></div>
                         </div>
                     </div>
 
@@ -159,13 +197,15 @@ Copyright oSoc15
                 <div class="container text-center" id="content">
                     <div class="row">
                         <div class="col-md-6 bookcover">
-                            <img src="content/images/bookcovers/Harry_Potter_EDV.png" alt="Cover">
+                            <img src="mockup/content/images/bookcovers/Harry_Potter_EDV.png" alt="Cover">
                         </div>
 
                         <div class="col-md-6 information">
                             <h1 class="title">Harry Potter en de Vuurbeker</h1>
                             <p class="synopsis">Als tovenaar-in-de-dop Harry Potter deelneemt aan een internationaal tovenaarstoernooi, dreigt er onverwacht gevaar. (samenvatting)</p>
                             <p class="writtenby">Geschreven door <strong>J.K. Rowling</strong></p>
+
+                            <div class="button back" id="back">Terug naar het overzicht</div>
                         </div>
                     </div>
                 </div>
@@ -186,17 +226,20 @@ Copyright oSoc15
             $(".step").hide();
             step1.show();
 
-            $("#step2 .book").click(function() {
-                
-            })
+            $(".book img").on("click", function () {
+               $(".detail").fadeIn();
+            });
+
+            $(".detail #back").on("click", function() {
+                $(overlay).fadeOut();
+            });
 
             function changePage(id) {
                 if(id == "step2") {
-                    setTimeout(function() {
-                        step1.fadeOut(300, function() {
-                            step2.fadeIn();
-                        });
-                    }, 300);
+                    setTimeout(300);
+                    step1.fadeOut(300, function() {
+                        step2.fadeIn();
+                    });
                 }
             }
 
