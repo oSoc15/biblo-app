@@ -13,6 +13,10 @@ $thin-font: 100;
     box-sizing: border-box;
 }
 
+.container {
+    max-width: 970px !important;
+}
+
 .startpage {
     #page-wrapper {
         .text-center {
@@ -263,9 +267,9 @@ $thin-font: 100;
 }
 
 .detail .bookcover img {
-    height: 805px;
     min-width: 100%;
     width: auto;
+    max-height: 100%;
     border-radius: $border-radius;
 }
 
@@ -305,7 +309,7 @@ $thin-font: 100;
     position: absolute;
     left: 50%;
     margin-left: -180px !important;
-    top: 430;
+    top: 430px;
     padding: 0 40px;
 
 }
@@ -315,7 +319,7 @@ $thin-font: 100;
 
 .suggestion {
     .book {
-        height: 390px;
+        height: 320px;
         overflow: hidden;
 
         img {

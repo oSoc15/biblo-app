@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box; }
 
+.container {
+  max-width: 970px !important; }
+
 .startpage #page-wrapper .text-center {
   text-align: center; }
 .startpage #page-wrapper #header {
@@ -165,9 +168,9 @@
   background: rgba(255, 255, 255, 0.9); }
 
 .detail .bookcover img {
-  height: 805px;
   min-width: 100%;
   width: auto;
+  max-height: 100%;
   border-radius: 10px; }
 
 .detail h1 {
@@ -203,14 +206,14 @@
   position: absolute;
   left: 50%;
   margin-left: -180px !important;
-  top: 430;
+  top: 430px;
   padding: 0 40px; }
 
 .button.no {
   float: right !important; }
 
 .suggestion .book {
-  height: 390px;
+  height: 320px;
   overflow: hidden; }
   .suggestion .book img {
     min-height: 100%;
