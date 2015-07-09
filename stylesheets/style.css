@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box; }
+
+.container {
+  max-width: 970px !important; }
+
+.startpage #page-wrapper .text-center {
+  text-align: center; }
+.startpage #page-wrapper #header {
+  background-color: #42413B;
+  margin-bottom: 10%; }
+  .startpage #page-wrapper #header h1 {
+    font-family: helvetica, sans-serif;
+    color: #FFF; }
+.startpage #page-wrapper #content img.resize {
+  max-width: 100%;
+  height: auto; }
+.startpage #page-wrapper #content .row {
+  margin: 15px 0 25px; }
+  .startpage #page-wrapper #content .row .button {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 7px solid #d9d9d9;
+    line-height: calc(80px + 14px);
+    text-align: center;
+    background: #ffffff;
+    float: left; }
+    .startpage #page-wrapper #content .row .button .icon {
+      width: 50px;
+      height: 50px; }
+    .startpage #page-wrapper #content .row .button .like {
+      color: #2cb145;
+      padding: 2px 0 0 12px; }
+      .startpage #page-wrapper #content .row .button .like #like {
+        fill: currentColor; }
+    .startpage #page-wrapper #content .row .button .dislike {
+      position: relative;
+      padding: 10px 0 0 7px;
+      left: 22px; }
+      .startpage #page-wrapper #content .row .button .dislike #cross {
+        position: absolute;
+        display: block;
+        width: 7px;
+        height: 50px;
+        border-radius: 4px;
+        background: #ff5a00;
+        transform: rotate(45deg); }
+        .startpage #page-wrapper #content .row .button .dislike #cross:after {
+          content: "";
+          position: absolute;
+          display: block;
+          width: 7px;
+          height: 50px;
+          border-radius: 4px;
+          background: #ff5a00;
+          transform: rotate(90deg); }
+  .startpage #page-wrapper #content .row .btn, .startpage #page-wrapper #content .row .btn-no, .startpage #page-wrapper #content .row .btn-yes {
+    border: 3px solid;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    padding-top: 10px; }
+  .startpage #page-wrapper #content .row .btn-no {
+    border-color: #ff5a00; }
+  .startpage #page-wrapper #content .row .btn-yes {
+    border-color: #2cb145; }
+
+.suggestion #page-wrapper .text-center {
+  text-align: center; }
+.suggestion #page-wrapper #header {
+  background-color: #42413B;
+  margin-bottom: 10%; }
+  .suggestion #page-wrapper #header h1 {
+    font-family: helvetica, sans-serif;
+    color: #FFF; }
+.suggestion #page-wrapper #content img.resize {
+  max-width: 100%;
+  height: auto; }
+.suggestion #page-wrapper #content .row {
+  margin: 15px 0 25px; }
+  .suggestion #page-wrapper #content .row .book img {
+    border-radius: 7px; }
+
+.detail #page-wrapper .text-center {
+  text-align: center; }
+.detail #page-wrapper #header {
+  background-color: #42413B;
+  margin-bottom: 10%; }
+  .detail #page-wrapper #header h1 {
+    font-family: helvetica, sans-serif;
+    color: #FFF; }
+.detail #page-wrapper #content img.resize {
+  max-width: 100%;
+  height: auto; }
+.detail #page-wrapper #content .row {
+  margin: 15px 0 25px; }
+  .detail #page-wrapper #content .row .information {
+    text-align: left; }
+    .detail #page-wrapper #content .row .information .title {
+      color: #ff5a00;
+      font-weight: 100; }
+
+#container-swipebox {
+  list-style-type: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.buddy {
+  display: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  width: 360px;
+  height: 360px;
+  top: 50px;
+  left: 50px;
+  position: absolute;
+  cursor: hand;
+  left: 50%;
+  margin-left: -180px; }
+
+.rotate-left {
+  transform: rotate(30deg) scale(0.8);
+  transition: 1s;
+  margin-left: 400px;
+  cursor: e-resize;
+  opacity: 0; }
+
+.rotate-right {
+  transform: rotate(-30deg) scale(0.8);
+  transition: 1s;
+  opacity: 0;
+  margin-left: -400px;
+  cursor: w-resize; }
+
+.avatar {
+  background: #222;
+  width: 340px;
+  height: 340px;
+  display: block;
+  margin-top: 10px;
+  margin-left: 10px;
+  background-size: 100% auto !important;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+.page-wrapper {
+  margin-top: 60px; }
+
+#header {
+  display: none; }
+
+.buddy {
+  position: absolute; }
+
+.detail {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.9); }
+
+.detail .bookcover img {
+  min-width: 100%;
+  width: auto;
+  max-height: 100%;
+  border-radius: 10px; }
+
+.detail h1 {
+  margin-top: 0; }
+
+.button.back {
+  background: none;
+  padding: 10px 40px;
+  font-weight: bold;
+  display: inline-block;
+  border-radius: 3px;
+  text-shadow: none;
+  border: 2px solid #FF5A00;
+  margin-top: 40;
+  font-size: 14px; }
+
+.buttons .like {
+  background: url("../images/like.png") no-repeat;
+  width: 41px;
+  height: 38px;
+  margin: 15px 0 0 13px; }
+
+.buttons .dislike {
+  background: url("../images/dislike.png") no-repeat;
+  width: 38px;
+  height: 37px;
+  margin: 15px 0 0 14px;
+  left: 0 !important; }
+
+.buttons {
+  display: block;
+  width: 360px;
+  position: absolute;
+  left: 50%;
+  margin-left: -180px !important;
+  top: 430px;
+  padding: 0 40px; }
+
+.button.no {
+  float: right !important; }
+
+.suggestion .book {
+  height: 320px;
+  overflow: hidden; }
+  .suggestion .book img {
+    min-height: 100%;
+    min-width: 100%;
+    max-height: auto; }
+
+.synopsis {
+  line-height: 1.6; }
+
+/*# sourceMappingURL=style.css.map */
