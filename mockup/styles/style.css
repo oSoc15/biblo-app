@@ -77,6 +77,8 @@
   height: auto; }
 .suggestion #page-wrapper #content .row {
   margin: 15px 0 25px; }
+  .suggestion #page-wrapper #content .row .book img {
+    border-radius: 7px; }
 
 .detail #page-wrapper .text-center {
   text-align: center; }
