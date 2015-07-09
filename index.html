@@ -81,7 +81,7 @@ Copyright oSoc15
             <div class="container-fluid text-center" id="header">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h1>KinderTinder</h1>
+                        <h1>Workname</h1>
 
                     </div>
                 </div>
@@ -137,49 +137,14 @@ Copyright oSoc15
             <div class="container-fluid text-center" id="header">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h1>KinderTinder</h1>
+                        <h1>Workname</h1>
 
                     </div>
                 </div>
             </div>
 
-            <div class="container text-center" id="content">
-                <div class="row">
-                    <div class="col-md-3 book">
-                        <img src="mockup/content/images/bookcovers/Harry_Potter_EDV.png" alt="" class="resize">
-                    </div>
-
-                    <div class="col-md-3 book">
-                        <img src="mockup/content/images/bookcovers/HLVEL.png" alt="" class="resize">
-                    </div>
-
-                    <div class="col-md-3 book">
-                        <img src="mockup/content/images/bookcovers/Harry_Potter_EDV.png" alt="" class="resize">
-                    </div>
-
-                    <div class="col-md-3 book">
-                        <img src="mockup/content/images/bookcovers/HLVEL.png" alt="" class="resize">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-3 book">
-                        <img src="mockup/content/images/bookcovers/Harry_Potter_EDV.png" alt="" class="resize">
-                    </div>
-
-                    <div class="col-md-3 book">
-                        <img src="mockup/content/images/bookcovers/HLVEL.png" alt="" class="resize">
-                    </div>
-
-                    <div class="col-md-3 book">
-                        <img src="mockup/content/images/bookcovers/Harry_Potter_EDV.png" alt="" class="resize">
-                    </div>
-
-                    <div class="col-md-3 book">
-                        <img src="mockup/content/images/bookcovers/HLVEL.png" alt="" class="resize">
-                    </div>
-                </div>
-            </div>
+            <div class="container text-center two" id="content">
+                
         </div>
 
         <div class="step detail" id="step3" data-index="3">
@@ -296,5 +261,34 @@ Copyright oSoc15
         });
     </script>
 
+<script>
+
+
+    $(document).ready(function() {
+        $.ajax({
+            type: 'get',
+            url: "mockup/scripts/data.json",
+            //force to handle it as text
+            dataType: "json",
+            success: function(data) {
+
+                $.each(data, function(index, book){
+                    var index = index;
+                    var title = book.title;
+                    var image = book.coverimage;
+                    var author = book.author;
+                    var description = book.description;
+
+
+                    $('.two').append(
+                            "<div class='col-md-3 col-lg-3 book' data-id=" + index + ">" +
+                            "<img src=" + image + " alt="+ title +" class="+ "resize" + " >" +
+                            "</div>"
+                    );
+                });
+            }
+        });
+    });
+</script>
 </body>
 </html>

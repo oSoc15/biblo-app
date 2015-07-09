@@ -8,7 +8,7 @@ $(document).ready(function() {
         //start ajax request
         $.ajax({
             type: 'get',
-            url: "scripts/data.json",
+            url: "data/json.",
             //force to handle it as text
             dataType: "json",
             success: function(data) {
@@ -21,7 +21,7 @@ $(document).ready(function() {
                     var description = book.description;
 
 
-                    $('#page-wrapper').append(
+                    $('.two').append(
                         "<div class='col-md-3 col-lg-3 book' data-id=" + index + ">" +
                         "<img src=" + image + " alt="+ title +" class="+ "resize" + " >" +
                         "</div>"
@@ -36,3 +36,5 @@ $(document).ready(function() {
         });
 
     });
+
+

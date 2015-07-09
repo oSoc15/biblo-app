@@ -5,7 +5,6 @@
  * @author Ruben Meul <meulruben@gmail.com>
  * @copyright Copyright (c) 2015, open Summer of code 2015
  */
-include('includes/json.php');
 //Debug output
 ini_set('display_startup_errors', 1);
 ini_set('display_errors', 1);
