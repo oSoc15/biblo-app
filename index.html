@@ -144,8 +144,11 @@ Copyright oSoc15
             </div>
 
             <div class="container text-center two" id="content">
-                
-        </div>
+               <div class="row">
+
+
+               </div>
+            </div>
 
         <div class="step detail" id="step3" data-index="3">
             <div class="page-wrapper" id="page-wrapper">
@@ -162,13 +165,13 @@ Copyright oSoc15
                 <div class="container text-center" id="content">
                     <div class="row">
                         <div class="col-md-6 bookcover">
-                            <img src="mockup/content/images/bookcovers/Harry_Potter_EDV.png" alt="Cover">
+
                         </div>
 
                         <div class="col-md-6 information">
-                            <h1 class="title">Harry Potter en de Vuurbeker</h1>
-                            <p class="synopsis">Als tovenaar-in-de-dop Harry Potter deelneemt aan een internationaal tovenaarstoernooi, dreigt er onverwacht gevaar. (samenvatting)</p>
-                            <p class="writtenby">Geschreven door <strong>J.K. Rowling</strong></p>
+                            <h1 class="title"></h1>
+                            <p class="synopsis"></p>
+                            <p class="writtenby"></p>
 
                             <div class="button back" id="back">Terug naar het overzicht</div>
                         </div>
@@ -181,22 +184,51 @@ Copyright oSoc15
     <script src="javascript/jquery.min.js"></script>
     <script src="javascript/jquery.mobile.min.js"></script>
     <script>
+        var allData;
         $(document).ready(function() {
             var step1 = $("#step1");
             var step2 = $("#step2");
             var overlay = $("#step3");
 
-            var page = 1;
 
             $(".step").hide();
             step1.show();
 
-            $(".book img").on("click", function () {
-               $(".detail").fadeIn();
+
+            $(document).on("click", ".book", function(){
+                $(overlay).show();
+                var id = $(this).attr("data-id");
+                setDetailTemplate(id);
             });
+
+            function setDetailTemplate(id)
+            {
+                var selected = allData[id];
+                $('.title').append(
+                        "<h1>"+ selected.title +"</h1>"
+                );
+                $('.synopsis').append(
+                        "<p>"+ selected.description +"</p>"
+                );
+                $('.writtenby').append(
+
+                        "<p>Geschreven door <strong>" + selected.author + "</strong>"
+                );
+
+                $('.bookcover').append(
+
+                        "<img src='"+ selected.coverimage + "' alt='afbeelding'/>"
+                );
+            }
+
 
             $(".detail #back").on("click", function() {
                 $(overlay).fadeOut();
+                $('.title').empty();
+                $('.synopsis').empty();
+                $('.writtenby').empty();
+                $('.bookcover').empty();
+
             });
 
             function changePage(id) {
@@ -272,21 +304,28 @@ Copyright oSoc15
             dataType: "json",
             success: function(data) {
 
+                allData = data;
+
+                var id, title, image, author, description;
                 $.each(data, function(index, book){
-                    var index = index;
-                    var title = book.title;
-                    var image = book.coverimage;
-                    var author = book.author;
-                    var description = book.description;
+                    id = index;
+                    title = book.title;
+                    image = book.coverimage;
+                    author = book.author;
+                    description = book.description;
 
 
-                    $('.two').append(
+
+                    $('.two .row').append(
                             "<div class='col-md-3 col-lg-3 book' data-id=" + index + ">" +
-                            "<img src=" + image + " alt="+ title +" class="+ "resize" + " >" +
+                            "<img src=" + book.coverimage + " alt="+ title +" class="+ "resize" + " >" +
                             "</div>"
                     );
+
                 });
             }
+
+
         });
     });
 </script>
