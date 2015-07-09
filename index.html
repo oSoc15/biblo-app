@@ -70,6 +70,8 @@ Copyright oSoc15
         }
 
 
+
+
     </style>
 </head>
 <body>
@@ -116,7 +118,6 @@ Copyright oSoc15
                         <div class="button yes">
                             <div class="icon like"></div>
                         </div>
-
                     </div>
                     <div class="col-xs-2 col-sm-2 col-md-1 col-lg-2"></div>
                     <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
@@ -138,14 +139,13 @@ Copyright oSoc15
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <h1>KinderTinder</h1>
-
                     </div>
                 </div>
             </div>
 
             <div class="container text-center" id="content">
                 <div class="row">
-                    <div class="col-md-3 book">
+                    <div class="col-md-3 book" data-id="0">
                         <img src="mockup/content/images/bookcovers/Harry_Potter_EDV.png" alt="" class="resize">
                     </div>
 
@@ -180,6 +180,7 @@ Copyright oSoc15
                     </div>
                 </div>
             </div>
+            <div id="list--books"></div>
         </div>
 
         <div class="step detail" id="step3" data-index="3">
@@ -261,9 +262,11 @@ Copyright oSoc15
                 $(this).append('<div class="status dislike">Dislike!</div>');
 
                 if ( $(this).is(':last-child') ) {
-                    $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
-                    $(this).remove();
-                    changePage("step2");
+                    setTimeout(function() {
+                        $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+                        $(this).remove();
+                        changePage("step2");
+                    }, 300);
                 } else {
                     $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
                 }
