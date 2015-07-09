@@ -1,7 +1,7 @@
 [
     {
         "coverimage": "mockup/content/images/bookcovers/HLVEL.png",
-        "title": "Vergif1",
+        "title": "Het Leven van een Loser",
         "author": "R.H. Schoemans",
         "genres": [
             "Detective",
@@ -11,8 +11,8 @@
     },
     {
         "coverimage": "mockup/content/images/bookcovers/Harry_Potter_EDV.png",
-        "title": "Vergif2",
-        "author": "R.H. Schoemans",
+        "title": "Harry potter en de Vuurbeker",
+        "author": "J.K. Rowling",
         "genres": [
             "Detective",
             "Humor"
@@ -21,7 +21,7 @@
     },
    {
         "coverimage": "mockup/content/images/bookcovers/twilight.png",
-        "title": "Vergif3",
+        "title": "Twilight",
         "author": "R.H. Schoemans",
         "genres": [
             "Detective",
@@ -31,7 +31,7 @@
     },
     {
         "coverimage": "mockup/content/images/bookcovers/griezelbus.png",
-        "title": "Vergif4",
+        "title": "De Griezelbus",
         "author": "R.H. Schoemans",
         "genres": [
             "Detective",
@@ -41,8 +41,8 @@
     },
    {
         "coverimage": "mockup/content/images/bookcovers/blauwe_plekken.png",
-        "title": "Vergif5",
-        "author": "R.H. Schoemans",
+        "title": "Blauwe Plekken",
+        "author": "Anke De Vries",
         "genres": [
             "Detective",
             "Humor"
@@ -51,8 +51,8 @@
     },
     {
         "coverimage": "mockup/content/images/bookcovers/henna_huid.png",
-        "title": "Vergif6",
-        "author": "R.H. Schoemans",
+        "title": "Henna op je Huid",
+        "author": "Dirk Bracke",
         "genres": [
             "Detective",
             "Humor"
@@ -61,8 +61,8 @@
     },
     {
         "coverimage": "mockup/content/images/bookcovers/pak_de_kip.png",
-        "title": "Vergif7",
-        "author": "R.H. Schoemans",
+        "title": "Pak De Kip",
+        "author": "Carry Slee",
         "genres": [
             "Detective",
             "Humor"
@@ -71,8 +71,8 @@
     },
     {
         "coverimage": "mockup/content/images/bookcovers/eefje.png",
-        "title": "Vergif8",
-        "author": "R.H. Schoemans",
+        "title": "Eefje Donkerblauw",
+        "author": "Geert De Kockere",
         "genres": [
             "Detective",
             "Humor"
