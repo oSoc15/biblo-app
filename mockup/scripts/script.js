@@ -8,7 +8,7 @@ $(document).ready(function() {
         //start ajax request
         $.ajax({
             type: 'get',
-            url: "../server/index.php",
+            url: "scripts/data.json",
             //force to handle it as text
             dataType: "json",
             success: function(data) {

@@ -25,7 +25,7 @@ $app->get('/',function(){
 
   //convert the xml to json
   $json = json_encode($xml);
-
+  //return $json;
   //convert the json to an array
   $results = json_decode($json,TRUE);
 
@@ -44,8 +44,8 @@ $app->get('/',function(){
     ];
 
     //check if author is set
-    if(array_key_exists('author', $result)){
-      $temp["author"] = $result['author']['main-author'];
+    if(array_key_exists('authors', $result)){
+      $temp["author"] = $result['authors']['main-author'];
     }
     else{
       $temp["author"] = "Geen auteur te vinden.";
@@ -58,14 +58,15 @@ $app->get('/',function(){
     else{
       $temp["description"] = "Geen beschrijving te vinden.";
     }
-    array_push($output, $temp);
 
     //check if genres is set
-    if(is_string($result['genres'])){
-      $temp["genres"] = array_unique($result['genres']['genre']);
+    if(is_array($result['genres']['genre'])){
+      $temp["genres"] = implode(", ",array_unique($result['genres']['genre']));
     }else{
       $temp["genres"] = $result['genres']['genre'];
     }
+
+    array_push($output, $temp);
   }
   //encode the array to json and return it
   return json_encode($output);
