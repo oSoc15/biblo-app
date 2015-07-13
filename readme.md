@@ -1,2 +1,11 @@
-# Bibnet
-Project to promote books for our partner BIBNET and the library of Ghent.
+Bibnet
+=======================
+
+## Dependencies
+- npm
+- bower => `npm install -g bower`
+
+## Usage
+- `npm install`
+- `bower install`
+- `gulp`
