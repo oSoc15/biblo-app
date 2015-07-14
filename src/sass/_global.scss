@@ -9,11 +9,8 @@ body {
 }
 
 header {
-    text-align: center;
-
     h1 {
-        text-transform: uppercase;
-        letter-spacing: 5px;
+        letter-spacing: 2px;
     }
 }
 
@@ -25,5 +22,5 @@ figure {
 
 .stack,
 .books {
-    margin: $spacing-normal 0;
+    margin: $spacing-small 0;
 }

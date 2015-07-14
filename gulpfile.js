@@ -9,6 +9,11 @@ gulp.task('normalize', function(){
         .pipe(gulp.dest('build/css'));
 });
 
+gulp.task('js', function(){
+    gulp.src(['src/js/**/*'])
+        .pipe(gulp.dest('build/js'));
+});
+
 gulp.task('jquery', function(){
     gulp.src(['bower_components/jquery/dist/jquery.min.js'])
         .pipe(gulp.dest('build/js'));
@@ -20,11 +25,7 @@ gulp.task('handlebars', function(){
 });
 
 gulp.task('scripts', function() {
-    gulp.src(['src/coffee/**/*.coffee'])
-        .pipe(coffee().on('error', function(err){
-            gutil.log(gutil.colors.red(err))
-        }))
-        .pipe(gulp.dest('build/js'));
+    gulp.run('js');
     gulp.run('jquery');
     gulp.run('handlebars');
 });
@@ -54,7 +55,7 @@ gulp.task('images', function() {
 gulp.task('default', function() {
     gulp.run('scripts', 'styles', 'content');
 
-    gulp.watch('src/coffee/**', function(event) {
+    gulp.watch('src/js/**', function(event) {
         gulp.run('scripts');
     });
     gulp.watch('src/sass/**', function(event) {

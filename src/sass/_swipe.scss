@@ -1,0 +1,30 @@
+.swipe {
+    header {
+        text-align: center;
+    }
+
+    section.stack {
+        height: $box-size;
+
+        figure {
+            @include box-shadow($box-size, $box-size);
+
+            position: absolute;
+
+            /** Center block */
+            left: 50%;
+            margin-left: -($box-size/2);
+
+            /** Stack effect */
+            &:nth-child(2) {
+                zoom: 90%;
+                margin-top: -10px;
+            }
+
+            &:nth-child(3) {
+                zoom: 80%;
+                margin-top: -22px;
+            }
+        }
+    }
+}

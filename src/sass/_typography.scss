@@ -6,3 +6,11 @@ h1, h2, h3 {
     font-family: $font-heading;
     margin: 0 auto;
 }
+
+h1 {
+    font-size: $font-h1;
+}
+
+strong {
+    font-weight: bolder;
+}
