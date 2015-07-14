@@ -4,3 +4,13 @@ block vars
     - var bodyClass = "step1";
 
 block content
+    div.container
+        header
+            h1 Hallo ik ben Bieblo
+            p Swipe jouw favoriete plaatje naar rechts
+        section.stack
+            each val, index in ['tag-1.png', 'tag-2.jpg', 'tag-3.jpg']
+                figure(style="background-image: url('images/" + val + "'); z-index: " + -index)
+        section.controls
+            a.dislike(href="#dislike") Niet leuk
+            a.like(href="#like") Leuk

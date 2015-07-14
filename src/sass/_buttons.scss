@@ -1,0 +1,35 @@
+.controls {
+    max-width: 300px;
+    margin: 0 auto;
+    
+    a {
+        display: block;
+
+        width: $button-size;
+        height: 90px;
+
+        border: 10px solid rgba(255,255,255,0.5);
+        border-radius: 50%;
+
+        /** Hide text */
+        text-indent: -9999px;
+
+        &.like {
+            float: right;
+
+            background: rgba(0, 182, 89, .5);
+            background-image: url("../images/icon-like.png");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        &.dislike {
+            float: left;
+
+            background: rgba(241,83,67, .5);
+            background-image: url("../images/icon-dislike.png");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}

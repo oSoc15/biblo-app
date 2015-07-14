@@ -1,0 +1,29 @@
+body {
+    background: url("../images/bg.png") repeat;
+    overflow: hidden;
+}
+
+.container {
+    @include outer-container(960px);
+    margin-top: $spacing-normal;
+}
+
+header {
+    text-align: center;
+
+    h1 {
+        text-transform: uppercase;
+        letter-spacing: 5px;
+    }
+}
+
+header,
+section,
+figure {
+    @include clearfix;
+}
+
+.stack,
+.books {
+    margin: $spacing-normal 0;
+}

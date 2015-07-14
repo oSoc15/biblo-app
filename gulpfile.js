@@ -32,7 +32,7 @@ gulp.task('scripts', function() {
 gulp.task('styles', function() {
     gulp.src(['src/sass/**/*.scss'])
         .pipe(sass().on('error', function(err){
-            gutil.log(gutil.colors.red('Error in SASS syntax'));
+            gutil.log(gutil.colors.red(err));
         }))
         .pipe(gulp.dest('build/css'));
     gulp.run('normalize');
