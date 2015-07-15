@@ -57,6 +57,7 @@
     position: absolute;
     top: 127px;
     z-index: 2;
+    overflow: hidden;
     @include outer-container(960px);
 
     .sidebar {
@@ -80,6 +81,9 @@
         .meta {
             border-top: 1px solid rgba($color-black, .2);
             padding-top: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
 
             strong {
                 padding-right: 10px;
