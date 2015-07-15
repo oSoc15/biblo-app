@@ -15,6 +15,7 @@
             }
         }
     }
+
     .book {
         @include span-columns(4);
         @include omega(3n);
@@ -51,4 +52,55 @@
             }
         }
     }
+}
+.details {
+    position: absolute;
+    top: 127px;
+    z-index: 2;
+
+    .sidebar {
+        @include span-columns(4);
+
+        figure {
+            @include box-shadow(280px, 350px);
+
+            background-size: cover;
+
+            border-radius: 2px;
+
+            left: 50%;
+            margin-left: -(280px/2);
+        }
+    }
+    .maincontent {
+        @include span-columns(8);
+        @include omega();
+    }
+}
+
+.blur {
+    z-index: 0;
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
+
+.overlay {
+    z-index: 1;
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255,255,255,.5);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+.noscroll {
+    overflow: hidden;
 }
