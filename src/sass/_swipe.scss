@@ -6,25 +6,52 @@
     section.stack {
         height: $box-size;
 
-        figure {
-            @include box-shadow($box-size, $box-size);
-
+        li {
+            list-style: none;
             position: absolute;
-
-            /** Center block */
+            height: 360px;
             left: 50%;
             margin-left: -($box-size/2);
+            cursor: hand;
+            zoom: 100%;
+            transition: .5s all;
 
-            /** Stack effect */
-            &:nth-child(2) {
+            &.tag_2 {
                 zoom: 90%;
                 margin-top: -10px;
+
+                transition: .5s zoom;
             }
 
-            &:nth-child(3) {
+            &.tag_3 {
                 zoom: 80%;
                 margin-top: -22px;
+                transition: .5s zoom;
             }
+
+            &.tag_4 {
+                zoom: 0%;
+                transition: .5s zoom;
+            }
+
+            .rotate-left {
+                transform: rotate(30deg) scale(0.8);
+                transition: 1s;
+                margin-left: 400px !important;
+                cursor: e-resize;
+                opacity: 0;
+            }
+            .rotate-right {
+                transform: rotate(-30deg) scale(0.8);
+                transition: 1s;
+                opacity: 0;
+                margin-left: -400px !important;
+                cursor: w-resize;
+            }
+        }
+
+        figure {
+            @include box-shadow($box-size, $box-size);
         }
     }
 }

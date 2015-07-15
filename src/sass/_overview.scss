@@ -16,20 +16,20 @@
         }
     }
     .book {
-        @include span-columns(3);
-        @include omega(4n);
+        @include span-columns(4);
+        @include omega(3n);
 
         margin-bottom: 30px;
 
         figure {
-            @include box-shadow(220px, 280px);
+            @include box-shadow(280px, 350px);
 
             background-size: cover;
 
             border-radius: 2px;
 
             left: 50%;
-            margin-left: -(220px/2);
+            margin-left: -(280px/2);
 
             &:before {
                 content: "";

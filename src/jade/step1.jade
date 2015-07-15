@@ -9,8 +9,13 @@ block content
             h1 Hallo ik ben Bieblo
             p Swipe jouw favoriete plaatje naar rechts
         section.stack
-            each val, index in ['tag-1.png', 'tag-2.jpg', 'tag-3.jpg']
-                figure(style="background-image: url('images/" + val + "'); z-index: " + -index)
+            ul
+                li
+                    figure(style="background-image: url(images/tag-1.jpg);", data-id=1)
+                li
+                    figure(style="background-image: url(images/tag-2.jpg);", data-id=2)
+                li
+                    figure(style="background-image: url(images/tag-3.jpg);", data-id=3)
         section.controls
             a.dislike(href="#dislike") Niet leuk
             a.like(href="#like") Leuk
