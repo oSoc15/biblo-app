@@ -1,10 +1,12 @@
 body {
     font-family: $font-normal;
+    color: $color-black;
 }
 
 h1, h2, h3 {
     font-family: $font-heading;
     margin: 0 auto;
+    line-height: 1;
 }
 
 h1 {
@@ -13,4 +15,9 @@ h1 {
 
 strong {
     font-weight: bolder;
+}
+
+p {
+    font-size: $font-p;
+    line-height: 1.8;
 }
