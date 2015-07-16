@@ -1,48 +1,116 @@
-$("li").on("swiperight",function(){
-    $(this).addClass('rotate-left').delay(700).fadeOut(1);
-    $('li').find('.status').remove();
+$(document).ready(function() {
+    var swiper = {
 
-    if ( $(this).is(':last-child') ) {
-        $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
-    } else {
-        $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-    }
-});
+        stackClass : ".stack",
+        jsonFile : "api/questions.json",
 
-$("li").on("swipeleft",function(){
-    $(this).addClass('rotate-right').delay(700).fadeOut(1);
-    $('li').find('.status').remove();
+        images : {},
+        index : 0,
+        liked : [],
+        disliked : [],
 
-    if ( $(this).is(':last-child') ) {
-        $('li:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
-        $(this).remove();
-    } else {
-        $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-    }
-});
+        init : function() {
+            swiper.getJson();
+        },
 
-$(".like").on("click",function(){
-    $('li').addClass('rotate-left').delay(700).fadeOut(1);
-    $('li').find('.status').remove();
-    $('li').append('<div class="status like">Like!</div>');
+        addImage : function() {
+            var image = swiper.getImage();
 
-    // if ( $(this).is(':last-child') ) {
-    //   $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
-    //  } else {
-    //     $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-    //  }
-});
+            if(image == null) {
+                var li = '';
+            }
+            else {
+                var li = '<li data-id="' + image.id + '"><figure style="background-image: url(' + image.url + ')"></figure></li>';
+            }
 
-$(".dislike").on("click",function(){
-    $('li').addClass('rotate-right').delay(700).fadeOut(1);
-    $('li').find('.status').remove();
-    $('li').append('<div class="status dislike">Dislike!</div>');
+            $(swiper.stackClass + " ul").append(li);
+        },
 
-    // if ( $(this).is(':last-child') ) {
-    //  $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
-    //   alert('Last one');
-    //  } else {
-    //     $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-    // }
+        setIndex : function() {
+            $(swiper.stackClass + " ul").children().each(function(i) {
+                $(this).removeClass().addClass("tag_" + (i + 1));
+                $(this).css("z-index", -i);
+            });
+        },
+
+        getJson : function() {
+            jQuery.ajax({
+                url: swiper.jsonFile,
+                type:"GET",
+                dataType: "json",
+                success: function(data) {
+                    swiper.saveJson(data);
+                },
+                error: function() {
+                    alert("JSON fout");
+                }
+            });
+        },
+
+        saveJson : function(data) {
+            swiper.images = data;
+
+            swiper.addImage();
+            swiper.addImage();
+            swiper.addImage();
+
+            swiper.tinder();
+            swiper.setIndex();
+        },
+
+        reInit : function() {
+            swiper.tinder();
+            swiper.setIndex();
+        },
+
+        getImage : function() {
+            if(swiper.index >= swiper.images.length) {
+                image = null;
+            }
+            else {
+                image = swiper.images[swiper.index];
+                swiper.index = swiper.index + 1;
+            }
+
+            return image;
+        },
+
+        tinder : function() {
+            $(swiper.stackClass).jTinder({
+                onDislike: function (item) {
+                    var id = $(item).data("id");
+
+                    swiper.disliked.push(id);
+
+                    console.log("Dislike: " + id);
+                    console.log("Disliked: " + swiper.disliked);
+
+                    $(item).remove();
+                    swiper.addImage();
+                    swiper.reInit();
+                },
+                onLike: function (item) {
+                    var id = $(item).data("id");
+
+                    swiper.liked.push(id);
+
+                    console.log("Like: " + id);
+                    console.log("Liked: " + swiper.liked);
+
+                    $(item).remove();
+                    swiper.addImage();
+                    swiper.reInit();
+                },
+                animationRevertSpeed: 200,
+                animationSpeed: 400,
+                threshold: 1,
+                likeSelector: '.like',
+                dislikeSelector: '.dislike'
+            });
+        }
+
+    };
+
+    swiper.init();
 });
 

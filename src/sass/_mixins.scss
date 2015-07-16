@@ -10,23 +10,8 @@
     background-position: center center;
 
     //box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3), inset 0px 0px 25px 0px rgba(0, 0, 0, 0.25);
-    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.3) inset;
 
-    /**&:after {
-        content: "";
-        position: absolute;
-
-        width: 340px;
-        height: 40px;
-
-        box-shadow: 0px 15px 16px 0px rgba(0, 0, 0, 0.2);
-        border-radius: 10px;
-
-        bottom: 5px;
-        left: 10px;
-
-        z-index: -1;
-    }*/
 }
 
 @mixin book-border() {
@@ -69,5 +54,28 @@
 
         top: -90%;
         left: 50%;
+    }
+}
+
+@mixin tag-shadow() {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+    border-radius: 2px;
+    border: 10px solid #fff;
+
+    &:after {
+        content: "";
+        position: absolute;
+
+        width: 340px;
+        height: 40px;
+
+        box-shadow: 0px 15px 16px 0px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+
+        bottom: 5px;
+        left: 10px;
+
+        z-index: -1;
     }
 }
