@@ -5,6 +5,11 @@
 
     section.stack {
         height: $box-size;
+        margin-bottom: $spacing-big;
+
+        ul {
+            padding-top: $spacing-normal;
+        }
 
         li {
             list-style: none;
