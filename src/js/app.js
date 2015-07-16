@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    // Hide jQuery mobile loading message
+    $(".ui-loader").hide();
+
     var swiper = {
 
         stackClass : ".stack",
@@ -32,6 +35,7 @@ $(document).ready(function() {
                 $(this).css("z-index", -i);
             });
         },
+
 
         getJson : function() {
             jQuery.ajax({
