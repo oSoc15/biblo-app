@@ -120,9 +120,13 @@ $(document).ready(function() {
 
     var overview = {
 
-        sugestions : "api/books.json",
+        sugestionsUrl : "api/books.json",
 
-        detail : {},
+        books : {},
+
+        index : 0,
+
+        booksPerPage : 9,
 
         showDetail : function() {
             $(".book, header").addClass("blur");
@@ -134,10 +138,51 @@ $(document).ready(function() {
             $(".book, header").removeClass("blur");
             $(".details").hide();
             $(".overlay").hide();
+        },
+
+        getBooks : function() {
+            jQuery.ajax({
+                url: "api/books.json",
+                type:"GET",
+                dataType: "json",
+                success: function(data) {
+                    overview.saveBooks(data);
+                },
+                error: function (request, error) {
+                    console.log(arguments);
+                    alert(" Can't do because: " + error);
+                }
+            });
+        },
+
+        saveBooks : function(data) {
+            overview.books = data;
+            console.log(overview.books);
+            overview.showBooks();
+        },
+
+        showBooks : function() {
+            jQuery.each(overview.books, function(i, book) {
+                if(overview.index < overview.booksPerPage) {
+                    overview.printBook(book);
+                }
+            });
+        },
+
+        printBook : function(book) {
+            var bookHtml = '<div class="book" data-index="' + overview.index + '"><figure style="background-image: url(' + book.coverimage + ');"></figure></div>';
+            $(".books").append(bookHtml);
+
+            overview.index++;
         }
     }
 
+    overview.getBooks();
+
     $(".book").on("click", function() {
+        var bookIndex = $(this).data("index");
+        console.log(bookIndex);
+
         overview.showDetail();
     });
 

@@ -2,6 +2,10 @@ body {
     background: url("../images/bg.png") repeat;
 }
 
+* {
+    outline: none;    
+}
+
 .container {
     @include outer-container(960px);
     margin-top: $spacing-normal;
