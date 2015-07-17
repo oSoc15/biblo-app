@@ -54,6 +54,7 @@
     }
 }
 .details {
+    display: none;
     position: absolute;
     top: 127px;
     z-index: 2;
@@ -77,6 +78,15 @@
     .maincontent {
         @include span-columns(8);
         @include omega();
+
+        #close {
+            background-image: url("../images/icon-close.png");
+            width: 32px;
+            height: 32px;
+            background-size: cover;
+            float: right;
+            margin-top: -29px;
+        }
 
         .meta {
             border-top: 1px solid rgba($color-black, .2);
@@ -105,9 +115,9 @@
 }
 
 .overlay {
+    display: none;
     z-index: 1;
     position: absolute;
-    display: block;
     top: 0;
     right: 0;
     bottom: 0;

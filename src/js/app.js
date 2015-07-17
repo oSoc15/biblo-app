@@ -116,5 +116,35 @@ $(document).ready(function() {
     };
 
     swiper.init();
+
+
+    var overview = {
+
+        sugestions : "api/books.json",
+
+        detail : {},
+
+        showDetail : function() {
+            $(".book, header").addClass("blur");
+            $(".details").show();
+            $(".overlay").show();
+        },
+
+        removeDetail : function() {
+            $(".book, header").removeClass("blur");
+            $(".details").hide();
+            $(".overlay").hide();
+        }
+    }
+
+    $(".book").on("click", function() {
+        overview.showDetail();
+    });
+
+    $("#close").on("click", function() {
+        overview.removeDetail();
+    });
+
+
 });
 
