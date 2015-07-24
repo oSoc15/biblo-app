@@ -2,6 +2,13 @@ $(document).ready(function() {
     // Hide jQuery mobile loading message
     $(".ui-loader").hide();
 
+    var global = {
+        changePage : function(page) {
+            console.log("hello");
+            $("body").pagecontainer("change", page);
+        }
+    };
+
     var swiper = {
 
         stackClass : ".stack",
@@ -101,6 +108,8 @@ $(document).ready(function() {
                     console.log("Like: " + id);
                     console.log("Liked: " + swiper.liked);
 
+                    swiper.checkLikes();
+
                     $(item).remove();
                     swiper.addImage();
                     swiper.reInit();
@@ -111,12 +120,31 @@ $(document).ready(function() {
                 likeSelector: '.like',
                 dislikeSelector: '.dislike'
             });
+        },
+
+        checkLikes : function() {
+            console.log(swiper.liked.length);
+            if(swiper.liked.length >= 3) {
+                overview.getBooks();
+            }
+
+            if(swiper.liked.length >= 5) {
+                global.changePage("#step2");
+            }
+        },
+
+        clear : function() {
+            swiper.images = {};
+            swiper.index = 0;
+            swiper.liked = [];
+            swiper.disliked = [];
+            $(swiper.stackClass + " ul").empty();
+            swiper.init();
         }
 
     };
 
     swiper.init();
-
 
     var overview = {
 
@@ -126,7 +154,7 @@ $(document).ready(function() {
 
         index : 0,
 
-        booksPerPage : 9,
+        booksPerPage : 8,
 
         showDetail : function() {
             $(".book, header").addClass("blur");
@@ -141,6 +169,10 @@ $(document).ready(function() {
         },
 
         getBooks : function() {
+            var likes = swiper.liked.join();
+            var dislikes = swiper.disliked.join();
+            var url = "http://bieblo.be/api.php?action=books&like=" + likes + "&dislike=" + dislikes;
+            console.log(url);
             jQuery.ajax({
                 url: "api/books.json",
                 type:"GET",
@@ -179,14 +211,18 @@ $(document).ready(function() {
 
     overview.getBooks();
 
-    $(".book").on("click", function() {
+    $(document).on("click", ".book", function() {
         var bookIndex = $(this).data("index");
         console.log(bookIndex);
 
         overview.showDetail();
     });
 
-    $("#close").on("click", function() {
+    $("header .back").on("click", function() {
+        swiper.clear();
+    });
+
+    $(".details #close").on("click", function() {
         overview.removeDetail();
     });
 

@@ -19,6 +19,16 @@ gulp.task('jquery', function(){
         .pipe(gulp.dest('build/js'));
 });
 
+gulp.task('jquery-mobile-js', function(){
+    gulp.src(['bower_components/jquery-mobile-bower/js/jquery.mobile-1.4.5.min.js'])
+        .pipe(gulp.dest('build/js'));
+});
+
+gulp.task('jquery-mobile-css', function(){
+    gulp.src(['bower_components/jquery-mobile-bower/css/jquery.mobile-1.4.5.min.css'])
+        .pipe(gulp.dest('build/css'));
+});
+
 gulp.task('handlebars', function(){
     gulp.src(['bower_components/handlebars/handlebars.min.js'])
         .pipe(gulp.dest('build/js'));
@@ -28,6 +38,7 @@ gulp.task('scripts', function() {
     gulp.run('js');
     gulp.run('jquery');
     gulp.run('handlebars');
+    gulp.run('jquery-mobile-js');
 });
 
 gulp.task('styles', function() {
@@ -37,6 +48,7 @@ gulp.task('styles', function() {
         }))
         .pipe(gulp.dest('build/css'));
     gulp.run('normalize');
+    gulp.run('jquery-mobile-css');
 });
 
 gulp.task('content', function() {
@@ -67,5 +79,4 @@ gulp.task('default', function() {
     gulp.watch('src/images/**', function(event) {
         gulp.run('images');
     });
-
 });
