@@ -58,24 +58,7 @@
 }
 
 @mixin tag-shadow() {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-
-    border-radius: 2px;
-    border: 10px solid #fff;
-
-    &:after {
-        content: "";
-        position: absolute;
-
-        width: 340px;
-        height: 40px;
-
-        box-shadow: 0px 15px 16px 0px rgba(0, 0, 0, 0.2);
-        border-radius: 10px;
-
-        bottom: 5px;
-        left: 10px;
-
-        z-index: -1;
-    }
+    background: #FFFFFF;
+    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.20);
+    border-radius: 8px;
 }

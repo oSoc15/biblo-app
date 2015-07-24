@@ -1,36 +1,38 @@
-.overview {
+.ui-page-theme-step2 {
+
     header {
         h1 {
             float: left;
         }
-        span {
+        .back {
             float: right;
+            margin-top: -7px;
 
             svg {
                 float: right;
                 width: 22px;
                 height: 22px;
                 margin-top: 12px;
-                fill: #333;
+                fill: $color-white;
             }
         }
     }
 
     .book {
-        @include span-columns(4);
-        @include omega(3n);
+        @include span-columns(3);
+        @include omega(4n);
 
-        margin-bottom: 30px;
+        margin-bottom: 26px;
 
         figure {
-            @include box-shadow(280px, 350px);
+            @include box-shadow(220px, 300px);
 
             background-size: cover;
 
             border-radius: 2px;
 
             left: 50%;
-            margin-left: -(280px/2);
+            margin-left: -(220px/2);
 
             &:before {
                 content: "";

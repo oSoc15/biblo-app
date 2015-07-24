@@ -1,4 +1,4 @@
-.swipe {
+.ui-page-theme-step1 {
     header {
         text-align: center;
     }
@@ -29,12 +29,14 @@
                 zoom: 90%;
                 margin-top: -20px;
                 transition: .5s zoom;
+                opacity: .8;
             }
 
             &.tag_3 {
                 zoom: 80%;
                 margin-top: -43px;
                 transition: .5s zoom;
+                opacity: .6;
             }
 
             &.tag_4 {

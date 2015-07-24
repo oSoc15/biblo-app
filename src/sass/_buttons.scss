@@ -17,19 +17,23 @@
         &.like {
             float: right;
 
-            background: rgba(0, 182, 89, .5);
+            background: #66DB7A;
             background-image: url("../images/icon-like.png");
             background-repeat: no-repeat;
             background-position: center;
+            border: 1px solid #4CB85F;
+            box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.20);
         }
 
         &.dislike {
             float: left;
 
-            background: rgba(241,83,67, .5);
+            background: #FE6858;
             background-image: url("../images/icon-dislike.png");
             background-repeat: no-repeat;
             background-position: center;
+            border: 1px solid #DB4838;
+            box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.20);
         }
     }
 }
