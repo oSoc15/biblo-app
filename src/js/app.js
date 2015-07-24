@@ -4,7 +4,6 @@ $(document).ready(function() {
 
     var global = {
         changePage : function(page) {
-            console.log("hello");
             $("body").pagecontainer("change", page);
         }
     };
@@ -93,9 +92,6 @@ $(document).ready(function() {
 
                     swiper.disliked.push(id);
 
-                    console.log("Dislike: " + id);
-                    console.log("Disliked: " + swiper.disliked);
-
                     $(item).remove();
                     swiper.addImage();
                     swiper.reInit();
@@ -104,9 +100,6 @@ $(document).ready(function() {
                     var id = $(item).data("id");
 
                     swiper.liked.push(id);
-
-                    console.log("Like: " + id);
-                    console.log("Liked: " + swiper.liked);
 
                     swiper.checkLikes();
 
@@ -123,7 +116,6 @@ $(document).ready(function() {
         },
 
         checkLikes : function() {
-            console.log(swiper.liked.length);
             if(swiper.liked.length >= 3) {
                 overview.getBooks();
             }
@@ -156,23 +148,24 @@ $(document).ready(function() {
 
         booksPerPage : 8,
 
-        showDetail : function() {
-            $(".book, header").addClass("blur");
-            $(".details").show();
-            $(".overlay").show();
+        showDetail : function(id) {
+            $(".book, header").addClass("blur", 300);
+            $(".details").fadeIn(300);
+            $(".overlay").fadeIn(300);
+
+            var book = overview.books[id];
         },
 
         removeDetail : function() {
-            $(".book, header").removeClass("blur");
-            $(".details").hide();
-            $(".overlay").hide();
+            $(".book, header").removeClass("blur", 200);
+            $(".details").fadeOut(200);
+            $(".overlay").fadeOut(200);
         },
 
         getBooks : function() {
             var likes = swiper.liked.join();
             var dislikes = swiper.disliked.join();
             var url = "http://bieblo.be/api.php?action=books&like=" + likes + "&dislike=" + dislikes;
-            console.log(url);
             jQuery.ajax({
                 url: "api/books.json",
                 type:"GET",
@@ -181,7 +174,6 @@ $(document).ready(function() {
                     overview.saveBooks(data);
                 },
                 error: function (request, error) {
-                    console.log(arguments);
                     alert(" Can't do because: " + error);
                 }
             });
@@ -189,7 +181,6 @@ $(document).ready(function() {
 
         saveBooks : function(data) {
             overview.books = data;
-            console.log(overview.books);
             overview.showBooks();
         },
 
@@ -211,18 +202,20 @@ $(document).ready(function() {
 
     overview.getBooks();
 
-    $(document).on("click", ".book", function() {
+    $(document).on("click tap", ".book", function() {
         var bookIndex = $(this).data("index");
-        console.log(bookIndex);
+        overview.showDetail(bookIndex);
+    });
 
-        overview.showDetail();
+    $("header .back").on("tap", function() {
+        swiper.clear();
     });
 
     $("header .back").on("click", function() {
         swiper.clear();
     });
 
-    $(".details #close").on("click", function() {
+    $(".details #close").on("click tap", function() {
         overview.removeDetail();
     });
 
