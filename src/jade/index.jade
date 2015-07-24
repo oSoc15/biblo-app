@@ -1,30 +1,47 @@
-extends layouts/master
-block vars
-    - var bodyClass = "swipe";
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="description", content="")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        link(href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700", rel="stylesheet", type="text/css")
+        link(rel="stylesheet", href="css/jquery.mobile-1.4.5.min.css")
+        link(rel="stylesheet", href="css/normalize.css")
+        link(rel="stylesheet", href="css/style.css")
+        block Bieblo
 
-block content
-    div.container(data-role="page", id="step1", data-theme="step1")
-        header
-            h1 Hallo ik ben <strong>Bieblo</strong>
-        section.stack
-            ul
-        section.controls
-            a.dislike(href="#step2") Niet leuk
-            a.like(href="#like") Leuk
+        body
+            div.container(data-role="page", id="step1", data-theme="step1")
+                header
+                    h1 Hallo ik ben <strong>Bieblo</strong>
+                section.stack
+                    ul
+                section.controls
+                    a.dislike(href="#step2") Niet leuk
+                    a.like(href="#like") Leuk
 
-    div.container(data-role="page", id="step2", data-theme="step2")
-        header
-            h1 Dit zijn jouw <strong>suggesties</strong>
-            a.back(href="#step1") <svg xmlns="http://www.w3.org/2000/svg" height="16" id="Layer_1" version="1.1" viewBox="0 0 16 16" width="16" xml:space="preserve" enable-background="new 0 0 16 16"><path d="M14 8c-0.61 0-0.9 0.43-1 0.88C12.64 10.52 11.08 13 8 13c-0.76 0-1.47-0.17-2.11-0.47L6.41 12C6.77 11.66 7 11.45 7 11c0-0.52-0.44-1-1-1H3c-0.61 0-1 0.49-1 1v3c0 0.54 0.43 1 1 1 0.48 0 0.69-0.27 1-0.59l0.41-0.41C5.46 14.63 6.69 15 8 15c4.99 0 7-4.75 7-5.94C15 8.34 14.47 8 14 8zM3 7.12C3.37 5.49 4.92 3 8 3c0.76 0 1.47 0.17 2.11 0.47L9.59 4C9.23 4.34 9 4.56 9 5c0 0.52 0.44 1 1 1h3c0.61 0 1-0.49 1-1V2c0-0.54-0.43-1-1-1 -0.48 0-0.69 0.27-1 0.59l-0.41 0.41C10.54 1.37 9.32 1 8 1 3.01 1 1 5.75 1 6.94 1 7.66 1.53 8 2 8 2.61 8 2.9 7.57 3 7.12z"/></svg>
-        section.books
-        section.details
-            div.sidebar
-                figure(style="background-image: url('{{ book.url }}');")
-            div.maincontent
-                h1 {{ book.title }}
-                div#close
-                p {{ book.description }}
-                div.meta
-                    span.author <strong>Auteur</strong> {{ book.author }}
-                    span.genre <strong>Genre</strong> {{ book.genre }}
-        div.overlay
+            div.container(data-role="page", id="step2", data-theme="step2")
+                header
+                    h1 Dit zijn jouw <strong>suggesties</strong>
+                    a.back(href="#step1") <svg xmlns="http://www.w3.org/2000/svg" height="16" id="Layer_1" version="1.1" viewBox="0 0 16 16" width="16" xml:space="preserve" enable-background="new 0 0 16 16"><path d="M14 8c-0.61 0-0.9 0.43-1 0.88C12.64 10.52 11.08 13 8 13c-0.76 0-1.47-0.17-2.11-0.47L6.41 12C6.77 11.66 7 11.45 7 11c0-0.52-0.44-1-1-1H3c-0.61 0-1 0.49-1 1v3c0 0.54 0.43 1 1 1 0.48 0 0.69-0.27 1-0.59l0.41-0.41C5.46 14.63 6.69 15 8 15c4.99 0 7-4.75 7-5.94C15 8.34 14.47 8 14 8zM3 7.12C3.37 5.49 4.92 3 8 3c0.76 0 1.47 0.17 2.11 0.47L9.59 4C9.23 4.34 9 4.56 9 5c0 0.52 0.44 1 1 1h3c0.61 0 1-0.49 1-1V2c0-0.54-0.43-1-1-1 -0.48 0-0.69 0.27-1 0.59l-0.41 0.41C10.54 1.37 9.32 1 8 1 3.01 1 1 5.75 1 6.94 1 7.66 1.53 8 2 8 2.61 8 2.9 7.57 3 7.12z"/></svg>
+                section.books
+                section.details
+                    div.sidebar
+                        figure(style="background-image: url('{{ url }}');")
+                    div.maincontent
+                        h1
+                        div#close
+                        p
+                        div.meta
+                            span.author
+                            span.genre
+                div.overlay
+
+        script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+        script(type="text/javascript", src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js")
+        script(type="text/javascript", src="js/handlebars.min.js")
+        script(type="text/javascript", src="js/jquery.transform.js")
+        script(type="text/javascript", src="js/jquery.slide.js")
+        script(type="text/javascript", src="js/app.js")
+        script(type="text/javascript", src="js/swipe.js")

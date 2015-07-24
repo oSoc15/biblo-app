@@ -1,6 +1,5 @@
 $(document).ready(function() {
     // Hide jQuery mobile loading message
-    $(".ui-loader").hide();
 
     var global = {
         changePage : function(page) {
@@ -130,7 +129,7 @@ $(document).ready(function() {
             swiper.index = 0;
             swiper.liked = [];
             swiper.disliked = [];
-            $(swiper.stackClass + " ul").empty();
+            $(".stack ul").empty();
             swiper.init();
         }
 
@@ -154,6 +153,11 @@ $(document).ready(function() {
             $(".overlay").fadeIn(300);
 
             var book = overview.books[id];
+            $(".details h1").html(book.title);
+            $(".details p").html(book.description);
+            $(".details .author").html("<strong>Auteur</strong> " + book.author);
+            $(".details .genre").html("<strong>Genre</strong> " + book.genres);
+            $(".details figure").css("background-image", "url(" + book.coverimage + ")");
         },
 
         removeDetail : function() {
@@ -197,6 +201,11 @@ $(document).ready(function() {
             $(".books").append(bookHtml);
 
             overview.index++;
+        },
+
+        replace : function(string1, string2) {
+            var replaced = $("body").html().replace(string1,string2);
+            $("body").html(replaced);
         }
     }
 
@@ -218,7 +227,6 @@ $(document).ready(function() {
     $(".details #close").on("click tap", function() {
         overview.removeDetail();
     });
-
 
 });
 

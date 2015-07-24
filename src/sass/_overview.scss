@@ -29,10 +29,12 @@
 
             background-size: cover;
 
-            border-radius: 2px;
+            border-radius: 8px;
 
             left: 50%;
             margin-left: -(220px/2);
+
+            overflow: hidden;
 
             &:before {
                 content: "";
@@ -72,7 +74,7 @@
 
             background-size: cover;
 
-            border-radius: 2px;
+            border-radius: 8px;
 
             left: 50%;
             margin-left: -(280px/2);
@@ -82,13 +84,23 @@
         @include span-columns(8);
         @include omega();
 
+        h1 {
+            color: $color-black;
+            width: 100%;
+            float: left;
+            line-height: 1.8;
+            letter-spacing: 3px;
+            padding-right: 50px;
+            padding-bottom: 14px;
+        }
+
         #close {
             background-image: url("../images/icon-close.png");
             width: 32px;
             height: 32px;
             background-size: cover;
             float: right;
-            margin-top: -29px;
+            margin-top: -52px;
         }
 
         .meta {
