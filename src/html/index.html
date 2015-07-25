@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bieblo</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <link rel="apple-touch-icon" href="img/apple-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+</head>
+<body>
+
+    <section class="page container swipe" id="swipe" data-page="1">
+        <header>
+            <h1>Hallo, ik ben <strong>Bieblo</strong></h1>
+        </header>
+
+        <main>
+            <div class="stack">
+                <ul></ul>
+            </div>
+
+            <div class="controls">
+                <span id="dislike">Niet leuk</span>
+                <span id="like">Leuk</span>
+            </div>
+        </main>
+    </section>
+
+    <section class="page container overview" id="overview" data-page="2">
+        <header>
+            <h1>Dit zijn jouw <strong>suggesties</strong></h1>
+            <div class="back">
+                <img src="img/refresh.svg" alt="Terug">
+            </div>
+        </header>
+
+        <main>
+            <div class="books">
+
+            </div>
+
+            <article class="overlay">
+
+            </article>
+        </main>
+    </section>
+
+<script id="tag-template" type="x-handlebars-template">​
+    <li data-id="{{ id }}">
+        <figure style="background-image: url('{{ url }}');"></figure>
+    </li>
+</script>
+
+<script id="overview-template" type="x-handlebars-template">​
+    {{#each this}}
+    <div class="book" data-index="{{ @key }}">
+        <figure style="background-image: url('{{ coverimage }}');"></figure>
+    </div>
+    {{/each}}
+</script>
+
+<script id="detail-template" type="x-handlebars-template">​
+    <div class="container">
+        <div class="sidebar">
+            <figure style="background-image: url('{{ coverimage }}');"></figure>
+        </div>
+
+        <div class="maincontent">
+            <div class="close" id="close">
+                <img src="img/icon-close.svg" alt="Sluiten">
+            </div>
+            <h1>{{ title }}</h1>
+            <p>{{ description }}</p>
+            <div class="meta">
+                <span class="author"><strong>Auteur</strong> {{ author }}</span>
+                <span class="genre"><strong>Genre</strong> {{ genres }}</span>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>if (!window.jQuery) { document.write('<script src="js/jquery.min.js"><\/script>'); }</script>
+
+<script type="text/javascript" src="js/handlebars.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>
