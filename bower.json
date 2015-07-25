@@ -13,11 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "normalize-css": "latest",
-    "jquery": "latest",
-    "handlebars": "latest",
-    "bourbon": "~4.2.3",
-    "neat": "~1.7.2",
-    "jquery-mobile-bower": "~1.4.5"
+    "jquery": "~2.1.4",
+    "handlebars": "~3.0.3",
   }
 }
