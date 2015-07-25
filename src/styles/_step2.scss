@@ -1,0 +1,134 @@
+.overview {
+    header {
+        padding: 0 10px;
+
+        h1 {
+            float: left;
+        }
+
+        .back {
+            float: right;
+            margin: 6px 0 0 0;
+
+            img {
+                float: right;
+                width: 22px;
+                height: 22px;
+            }
+        }
+    }
+
+    main {
+        .book {
+            @include col(3);
+            margin: 0 0 20px;
+
+            figure {
+                @include box-shadow($book-w, $book-h);
+
+                background-size: cover;
+
+                left: 50%;
+                margin-left: -($book-w/2);
+
+                overflow: hidden;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+
+                    width: 15px;
+
+                    top: 0;
+                    bottom: 0;
+
+                    background: linear-gradient(
+                        to right,
+                        rgba(0,0,0,0.05) 0%,
+                        rgba(0,0,0,0) 32%,
+                        rgba(0,0,0,0.2) 55%,
+                        rgba(0,0,0,0) 65%,
+                        rgba(0,0,0,0) 100%
+                    );
+                }
+            }
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            background: rgba($color-white,.5);
+
+            width: 100vw;
+            height: 100vh;
+
+            z-index: 1;
+
+            padding: $spacing3 0 0 0;
+
+            .container {
+                padding: 0 10px;
+
+                .close {
+                    float: right;
+                    margin: 2px 0 0 0;
+
+                    img {
+                        float: right;
+                        width: 22px;
+                        height: 22px;
+                    }
+                }
+
+                .sidebar {
+                    width: $book-big-w + $spacing3;
+                    float: left;
+
+                    figure {
+                        @include box-shadow($book-big-w, $book-big-h);
+                    }
+                }
+
+                .maincontent {
+                    width: $container-w - $book-big-w - $spacing2;
+                    height: $book-big-h;
+                    position: relative;
+                    float: left;
+
+                    h1 {
+                        line-height: 1.8;
+                        margin-top: -15px;
+                    }
+
+                    .meta {
+                        border-top: 1px solid rgba($color-black, .2);
+                        padding-top: 10px;
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+
+                        strong {
+                            padding-right: 10px;
+                        }
+                        span:nth-child(2) {
+                            margin-left: $spacing3;
+                        }
+                    }
+                }
+            }
+        }
+
+        .blur {
+            z-index: 0;
+            filter: blur(10px);
+            color: transparent;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+    }
+}

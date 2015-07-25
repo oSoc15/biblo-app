@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: $color-blue;
+    background-image: radial-gradient(48% 134%, rgba(255,255,255,0.50) 50%, rgba(255,255,255,0.00) 98%);
+
+    font-family: $font-stack;
+    font-size: $paragraph;
+    color: $color-black;
+
+    overflow: hidden;
+}
+
+.container {
+    max-width: $container-w;
+    margin: $spacing2 auto 0 auto;
+}
+
+section,
+header,
+main,
+article,
+.stack {
+    @extend %clearfix;
+}
+
+header {
+    margin: 0 0 $spacing3;
+
+    h1 {
+        color: $color-white;
+        text-shadow: 1.5px 1.5px 2px rgba($color-black, 0.2);
+
+        strong {
+            font-weight: 700;
+        }
+    }
+}
+
+h1 {
+    font-size: $heading;
+    font-weight: 300;
+    line-height: 1;
+    margin: 0;
+}
+
+p {
+    line-height: $line-height;
+}
+
+figure {
+    margin: 0;
+}

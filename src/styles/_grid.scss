@@ -1,0 +1,4 @@
+@mixin col($cols) {
+    width: $cols / 12 * 100%;
+    float: left;
+}

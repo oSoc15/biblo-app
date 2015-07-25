@@ -1,0 +1,50 @@
+%clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin box-shadow($width, $height) {
+    position: relative;
+    width: $width;
+    height: $height;
+
+    margin: 0;
+
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: top center;
+
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.3) inset;
+
+    border-radius: $border-radius;
+}
+
+@mixin book-edge() {
+    &:before {
+        content: "";
+        position: absolute;
+
+        width: 25px;
+
+        top: 0;
+        bottom: 0;
+
+        background: linear-gradient(
+            to right,
+            rgba(0,0,0,0.05) 0%,
+            rgba(0,0,0,0) 32%,
+            rgba(0,0,0,0.2) 55%,
+            rgba(0,0,0,0) 65%,
+            rgba(0,0,0,0) 100%
+        );
+    }
+}
+
+@mixin tag-shadow() {
+    background: $color-white;
+    box-shadow: 0px 2px 8px 0px rgba($color-black,0.20);
+    border-radius: $border-radius;
+}

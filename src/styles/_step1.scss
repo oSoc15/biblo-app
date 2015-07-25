@@ -1,0 +1,107 @@
+.swipe {
+    header {
+        text-align: center;
+        margin: 0 0 $spacing2;
+    }
+
+    .stack {
+        margin: $spacing2 0 $spacing2 + $spacing3;
+        height: $tag-h;
+
+        li {
+            list-style: none;
+            position: absolute;
+            height: $tag-h;
+            width: $tag-w;
+
+            left: 50%;
+            margin-left: -($tag-w/2);
+
+            cursor: hand;
+            zoom: 100%;
+
+            overflow: hidden;
+
+            box-sizing: content-box;
+
+            @include tag-shadow();
+
+            &.tag_2 {
+                zoom: 90%;
+                margin-top: -20px;
+                transition: .5s margin-top;
+            }
+
+            &.tag_3 {
+                zoom: 80%;
+                margin-top: -43px;
+                transition: .5s margin-top;
+            }
+
+            &.tag_4 {
+                zoom: 0%;
+                margin-top: -60px;
+                transition: .5s margin-top;
+            }
+
+            figure {
+                @include box-shadow($tag-w, $tag-h);
+            }
+
+            // Fake like dislike animation
+            .rotate-left {
+                transform: rotate(30deg) scale(0.8);
+                transition: 1s;
+                margin-left: $tag-w !important;
+                cursor: e-resize;
+                opacity: 0;
+            }
+
+            .rotate-right {
+                transform: rotate(-30deg) scale(0.8);
+                transition: 1s;
+                margin-left: -$tag-w !important;
+                cursor: w-resize;
+                opacity: 0;
+            }
+        }
+    }
+
+    .controls {
+        max-width: $tag-w;
+        margin: 0 auto;
+        padding: 0 $spacing3;
+
+        span {
+            display: block;
+
+            width: $button-w;
+            height: $button-h;
+
+            border-radius: 50%;
+
+            box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.20);
+
+            /** Hide text */
+            text-indent: -9999px;
+
+            &#dislike {
+                float: left;
+                background: $color-dislike;
+                background-image: url("../img/icon-dislike.png");
+                background-repeat: no-repeat;
+                background-position: center;
+                border: 1px solid darken($color-dislike, 10);
+            }
+
+            &#like {
+                float: right;
+                background: $color-like;
+                background-image: url("../img/icon-like.png");
+                background-repeat: no-repeat;
+                background-position: center;
+                border: 1px solid darken($color-like, 10);
+            }
+        }
+    }
+}
