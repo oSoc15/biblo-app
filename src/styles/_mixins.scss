@@ -3,6 +3,7 @@
  * @copyright: open Summer of code
  */
 
+// Clearfix mixin
 %clearfix {
     &:after {
         content: "";
@@ -11,6 +12,7 @@
     }
 }
 
+// Box shadow mixin
 @mixin box-shadow($width, $height) {
     position: relative;
     width: $width;
@@ -27,12 +29,13 @@
     border-radius: $border-radius;
 }
 
+// Place an edge on a book
 @mixin book-edge() {
     &:before {
         content: "";
         position: absolute;
 
-        width: 25px;
+        width: 15px;
 
         top: 0;
         bottom: 0;
@@ -48,6 +51,7 @@
     }
 }
 
+// Shadow on tags
 @mixin tag-shadow() {
     background: $color-white;
     box-shadow: 0px 2px 8px 0px rgba($color-black,0.20);

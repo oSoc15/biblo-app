@@ -19,6 +19,7 @@
             height: $tag-h;
             width: $tag-w;
 
+            // Center absolute div
             left: 50%;
             margin-left: -($tag-w/2);
 
@@ -36,13 +37,11 @@
                 margin-top: -20px;
                 transition: .5s margin-top;
             }
-
             &.tag_3 {
                 zoom: 80%;
                 margin-top: -43px;
                 transition: .5s margin-top;
             }
-
             &.tag_4 {
                 zoom: 0%;
                 margin-top: -60px;
@@ -61,7 +60,6 @@
                 cursor: e-resize;
                 opacity: 0;
             }
-
             .rotate-right {
                 transform: rotate(-30deg) scale(0.8);
                 transition: 1s;
@@ -87,12 +85,12 @@
 
             box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.20);
 
+            // Dislike & like buttons
             &#dislike {
                 float: left;
                 background: $color-dislike;
                 border: 1px solid darken($color-dislike, 10);
             }
-
             &#like {
                 float: right;
                 background: $color-like;

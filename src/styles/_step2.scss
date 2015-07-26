@@ -31,31 +31,17 @@
             figure {
                 @include box-shadow($book-w, $book-h);
 
+                // Cover background for optimal view
                 background-size: cover;
 
+                // Center absolute div
                 left: 50%;
                 margin-left: -($book-w/2);
 
                 overflow: hidden;
 
-                &:before {
-                    content: "";
-                    position: absolute;
-
-                    width: 15px;
-
-                    top: 0;
-                    bottom: 0;
-
-                    background: linear-gradient(
-                        to right,
-                        rgba(0,0,0,0.05) 0%,
-                        rgba(0,0,0,0) 32%,
-                        rgba(0,0,0,0.2) 55%,
-                        rgba(0,0,0,0) 65%,
-                        rgba(0,0,0,0) 100%
-                    );
-                }
+                // Insert book edge
+                @include book-edge();
             }
         }
 

@@ -3,10 +3,6 @@
  * @copyright: open Summer of code
  */
 
-* {
-    box-sizing: border-box;
-}
-
 body {
     background: $color-blue;
     background-image: radial-gradient(48% 134%, rgba(255,255,255,0.50) 50%, rgba(255,255,255,0.00) 98%);
@@ -15,12 +11,8 @@ body {
     font-size: $paragraph;
     color: $color-black;
 
+    // No scroll
     overflow: hidden;
-}
-
-.container {
-    max-width: $container-w;
-    margin: $spacing2 auto 0 auto;
 }
 
 section,
@@ -31,6 +23,7 @@ article,
     @extend %clearfix;
 }
 
+// Basic typography
 h1 {
     font-size: $heading;
     font-weight: 300;
@@ -42,6 +35,7 @@ p {
     line-height: $line-height;
 }
 
+// Header
 header {
     margin: 0 0 $spacing3;
 
