@@ -1,6 +1,6 @@
 /*!
- * gulp
- * $ npm install gulp gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-notify gulp-rename gulp-livereload gulp-cache del --save-dev
+ * @author: Shaun Janssens
+ * @copyright: open Summer of code
  */
 
 // Load plugins
@@ -15,6 +15,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
     livereload = require('gulp-livereload'),
+    connect = require('gulp-connect'),
     del = require('del');
 
 // Html
@@ -72,13 +73,20 @@ gulp.task('api', function(){
 
 // Clean
 gulp.task('clean', function(cb) {
-    del(['build/', 'build/css', 'build/js', 'build/img', 'build/api'], cb)
+    del(['build/', 'build/css', 'build/js', 'build/img', 'build/api'], cb);
+    gulp.start('html', 'styles', 'scripts', 'images', 'jquery', 'handlebars', 'api');
+});
+
+// Server
+gulp.task('server', function(cb) {
+    connect.server({
+        root: 'build',
+        livereload: true
+    });
 });
 
 // Default task
-gulp.task('default', ['clean'], function() {
-    gulp.start('html', 'styles', 'scripts', 'images', 'jquery', 'handlebars', 'api');
-});
+gulp.task('default', ['html', 'styles', 'scripts', 'images', 'jquery', 'handlebars', 'api', 'server', 'watch']);
 
 // Watch
 gulp.task('watch', function() {
