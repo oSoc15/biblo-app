@@ -123,12 +123,12 @@
                 }
             }
         }
+    }
 
-        .blur {
-            z-index: 0;
-            filter: blur(10px);
-            color: transparent;
-            text-shadow: 0 0 5px rgba(0,0,0,0.5);
-        }
+    .blur {
+        z-index: 0;
+        filter: blur(10px);
+        color: transparent;
+        text-shadow: 0 0 5px rgba(0,0,0,0.5);
     }
 }

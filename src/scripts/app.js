@@ -145,7 +145,7 @@ $(document).ready(function() {
         },
 
         showDetail : function(id) {
-            $(".books, header h1").addClass("blur", 200);
+            $(".books, header").addClass("blur", 200);
             $(".details").fadeIn(200);
             $(".overlay").fadeIn(200);
 
