@@ -1,3 +1,8 @@
+/**
+ * @author: Shaun Janssens
+ * @copyright: open Summer of code
+ */
+
 .swipe {
     header {
         text-align: center;
@@ -82,24 +87,15 @@
 
             box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.20);
 
-            /** Hide text */
-            text-indent: -9999px;
-
             &#dislike {
                 float: left;
                 background: $color-dislike;
-                background-image: url("../img/icon-dislike.png");
-                background-repeat: no-repeat;
-                background-position: center;
                 border: 1px solid darken($color-dislike, 10);
             }
 
             &#like {
                 float: right;
                 background: $color-like;
-                background-image: url("../img/icon-like.png");
-                background-repeat: no-repeat;
-                background-position: center;
                 border: 1px solid darken($color-like, 10);
             }
         }
