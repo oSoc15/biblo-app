@@ -88,25 +88,30 @@ $(document).ready(function() {
             page.showPage(1);
         },
 
+        like : function(item) {
+            var id = $(item).data("id");
+            swipe.liked.push(id);
+            swipe.checkLikes();
+            $(item).remove();
+            swipe.addImage();
+            swipe.tinder();
+        },
+
+        dislike : function(item) {
+            var id = $(item).data("id");
+            swipe.disliked.push(id);
+            $(item).remove();
+            swipe.addImage();
+            swipe.tinder();
+        },
+
         tinder : function() {
             $(".stack").jTinder({
                 onDislike: function (item) {
-                    var id = $(item).data("id");
-                    swipe.disliked.push(id);
-
-                    $(item).remove();
-                    swipe.addImage();
-                    swipe.tinder();
+                    swipe.dislike(item);
                 },
                 onLike: function (item) {
-                    var id = $(item).data("id");
-                    swipe.liked.push(id);
-
-                    swipe.checkLikes();
-
-                    $(item).remove();
-                    swipe.addImage();
-                    swipe.tinder();
+                    swipe.like(item);
                 },
                 animationRevertSpeed: 200,
                 animationSpeed: 400,
@@ -202,6 +207,25 @@ $(document).ready(function() {
 
     document.ontouchmove = function(event){
         event.preventDefault();
-    }
+    };
+
+    $(document).on("click touchstart", "#dislike", function() {
+        $(".tag_1").addClass("rotate-right");
+        setTimeout(function() {
+            var item = $(".rotate-right");
+            swipe.dislike(item);
+        }, 400 );
+    });
+
+    $(document).on("click touchstart", "#like", function() {
+        $(".tag_1").addClass("rotate-left");
+        setTimeout(function() {
+            var item = $(".rotate-left");
+            swipe.like(item);
+        }, 400 );
+    });
+
+
+
 });
 
