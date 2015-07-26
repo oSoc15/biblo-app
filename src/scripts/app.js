@@ -1,3 +1,7 @@
+/**
+ * @author: Shaun Janssens
+ * @copyright: open Summer of code
+ */
 $(document).ready(function() {
 
     var swipe = {

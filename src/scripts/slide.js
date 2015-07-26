@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2014, Dominik Weber
+ * Licensed under GPL Version 2.
+ */
 ;(function ($, window, document, undefined) {
     var pluginName = "jTinder",
         defaults = {
