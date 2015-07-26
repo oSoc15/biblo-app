@@ -83,6 +83,7 @@ $(document).ready(function() {
             swipe.liked = [];
             swipe.disliked = [];
             $(".stack ul").empty();
+            $(".books").empty();
             swipe.init();
             page.showPage(1);
         },
