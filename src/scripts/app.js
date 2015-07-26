@@ -160,7 +160,7 @@ $(document).ready(function() {
         },
 
         removeDetail : function() {
-            $(".books, header h1").removeClass("blur", 200);
+            $(".books, header").removeClass("blur", 200);
             $(".details").fadeOut(200);
             $(".overlay").fadeOut(200).empty();
         }
