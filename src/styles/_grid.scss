@@ -5,6 +5,7 @@
 
 .container {
     max-width: $container-w;
+    min-width: $container-w-min;
     margin: $spacing2 auto 0 auto;
 }
 

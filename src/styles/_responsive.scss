@@ -1,0 +1,80 @@
+@media only screen and (max-device-width: 980px) {
+    body {
+        overflow: visible;
+        overflow-x: hidden;
+    }
+    .overview main .book {
+        width: 33%;
+    }
+}
+@media only screen and (max-device-width: 720px) {
+    .overview main .book {
+        width: 50%;
+    }
+}
+@media only screen and (max-device-width: 500px) {
+    .container {
+        margin: 30px auto 0;
+    }
+    h1 {
+        font-size: 22px
+    }
+    .swipe {
+        .stack {
+            height: 300px;
+            margin-bottom: 60px;
+
+            li {
+                margin-left: -150px;
+                width: 300px;
+                height: 300px;
+
+                figure {
+                    width: 300px;
+                    height: 300px;
+                }
+            }
+        }
+        .controls {
+            padding: 0 60px;
+
+            span {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    }
+    .overview {
+        main {
+            .book {
+                width: 100%;
+            }
+            .overlay {
+                .container {
+                    .sidebar {
+                        display: none;
+                    }
+
+                    .maincontent {
+                        width: 100%;
+                        height: auto;
+                        padding: 0 0 0 20px;
+
+                        .meta {
+                            position: relative;
+                            margin: 20px 0 0;
+                            span {
+                                display: block;
+                                padding: 5px 0;
+
+                                &:nth-child(2) {
+                                    margin-left: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
