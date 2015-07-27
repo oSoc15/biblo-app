@@ -6,11 +6,11 @@
 .swipe {
     header {
         text-align: center;
-        margin: 0 0 $spacing2;
+        margin: 0 0 $spacing2 + $spacing3;
     }
 
     .stack {
-        margin: $spacing2 0 $spacing2 + $spacing3;
+        margin: $spacing2 0;
         height: $tag-h;
 
         li {
