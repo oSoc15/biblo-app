@@ -5,8 +5,6 @@
 $(document).ready(function() {
 
     var swipe = {
-        jsonFile : "api/questions.json",
-
         images : {},
         index : 0,
         liked : [],
@@ -52,8 +50,7 @@ $(document).ready(function() {
             var data = swipe.getImage();
 
             if(data != null) {
-                var template = $("#tag-template").html();
-                var handlebars = Handlebars.compile (template);
+                var handlebars = Handlebars.templates['tag-template'];
                 $(".stack ul").append(handlebars(data));
             }
 
@@ -149,8 +146,7 @@ $(document).ready(function() {
 
         showBooks : function(data) {
             data = data.slice(0, overview.booksPerPage);
-            var template = $("#overview-template").html();
-            var handlebars = Handlebars.compile (template);
+            var handlebars = Handlebars.templates['overview-template'];
             $(".books").append(handlebars(data));
         },
 
@@ -160,8 +156,7 @@ $(document).ready(function() {
             $(".overlay").fadeIn(200);
 
             var book = overview.books[id];
-            var template = $("#detail-template").html();
-            var handlebars = Handlebars.compile (template);
+            var handlebars = Handlebars.templates['detail-template'];
             $(".overlay").append(handlebars(book));
         },
 
