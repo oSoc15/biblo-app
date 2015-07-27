@@ -41,3 +41,6 @@ build
 
 ### Cache ###
 .sass-cache/
+
+### DS store ###
+.DS_Store
