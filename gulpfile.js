@@ -16,6 +16,7 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     livereload = require('gulp-livereload'),
     connect = require('gulp-connect'),
+    shell = require('gulp-shell'),
     del = require('del');
 
 // Html
@@ -61,8 +62,16 @@ gulp.task('jquery', function(){
 
 // Handlebars
 gulp.task('handlebars', function(){
-    return gulp.src(['bower_components/handlebars/handlebars.min.js'])
+    return gulp.src(['bower_components/handlebars/handlebars.runtime.min.js'])
         .pipe(gulp.dest('build/js'));
+});
+
+// Handlebars template
+gulp.task('handlebars-template', function () {
+    return gulp.src('*.js', {read: false})
+        .pipe(shell([
+            'handlebars src/templates/ >> src/scripts/templates.js'
+        ]))
 });
 
 // TEMP Api files
@@ -74,7 +83,7 @@ gulp.task('api', function(){
 // Clean
 gulp.task('clean', function(cb) {
     del(['build/', 'build/css', 'build/js', 'build/img', 'build/api'], cb);
-    gulp.start('html', 'styles', 'scripts', 'images', 'jquery', 'handlebars', 'api');
+    gulp.start('html', 'styles', 'handlebars-template', 'scripts', 'images', 'jquery', 'handlebars', 'api');
 });
 
 // Server
@@ -86,7 +95,7 @@ gulp.task('server', function(cb) {
 });
 
 // Default task
-gulp.task('default', ['html', 'styles', 'scripts', 'images', 'jquery', 'handlebars', 'api', 'server', 'watch']);
+gulp.task('default', ['html', 'styles', 'handlebars-template', 'scripts', 'images', 'jquery', 'handlebars', 'api', 'server', 'watch']);
 
 // Watch
 gulp.task('watch', function() {
