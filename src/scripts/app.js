@@ -13,6 +13,8 @@ $(document).ready(function() {
         index : 0,
         liked : [],
         disliked : [],
+        swipes : 0,
+
 
         init : function() {
             swipe.getImages();
@@ -26,7 +28,7 @@ $(document).ready(function() {
          */
         getImages : function() {
             jQuery.ajax({
-                url: "api/questions.json",
+                url: "http://api.bieblo.be/API/illustrations",
                 type:"GET",
                 dataType: "json",
                 success: function(data) {
@@ -87,12 +89,14 @@ $(document).ready(function() {
         /**
          * Check likes
          */
-        checkLikes : function() {
-            if(swipe.liked.length == 3) {
+        checkSwipes : function() {
+            swipe.swipes = swipe.swipes + 1;
+
+            if(parseInt(swipe.swipes) == 3) {
                 overview.getBooks();
             }
 
-            if(swipe.liked.length >= 5) {
+            if(parseInt(swipe.swipes) == parseInt(swipe.images.length)) {
                 page.showPage(2);
             }
         },
@@ -105,6 +109,7 @@ $(document).ready(function() {
             swipe.index = 0;
             swipe.liked = [];
             swipe.disliked = [];
+            swipe.swipes = 0;
             $(".stack ul").empty();
             $(".books").empty();
             swipe.init();
@@ -118,7 +123,7 @@ $(document).ready(function() {
         like : function(item) {
             var id = $(item).data("id");
             swipe.liked.push(id);
-            swipe.checkLikes();
+            swipe.checkSwipes();
             $(item).remove();
             swipe.addImage();
             swipe.tinder();
@@ -131,6 +136,7 @@ $(document).ready(function() {
         dislike : function(item) {
             var id = $(item).data("id");
             swipe.disliked.push(id);
+            swipe.checkSwipes();
             $(item).remove();
             swipe.addImage();
             swipe.tinder();
@@ -173,10 +179,10 @@ $(document).ready(function() {
         getBooks : function() {
             var likes = swipe.liked.join();
             var dislikes = swipe.disliked.join();
-            var url = "http://bieblo.be/api.php?action=books&like=" + likes + "&dislike=" + dislikes;
+            var url = "http://api.bieblo.be/API/recommendations?likes=" + likes + "&dislikes=" + dislikes;
 
             jQuery.ajax({
-                url: "api/books.json",
+                url: url,
                 type:"GET",
                 dataType: "json",
                 success: function(data) {
