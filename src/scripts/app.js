@@ -40,8 +40,21 @@ $(document).ready(function() {
 
                     swipe.tinder();
                 },
-                error: function() {
-                    alert("Fout bij ophalen van afbeeldingen");
+                error : function(xhr, textStatus, errorThrown ) {
+                    if (textStatus == 'timeout') {
+                        this.tryCount++;
+                        if (this.tryCount <= this.retryLimit) {
+                            //try again
+                            $.ajax(this);
+                            return;
+                        }
+                        return;
+                    }
+                    if (xhr.status == 500) {
+                        alert("Error: status 500 bij ophalen afbeelding");
+                    } else {
+                        alert("Error: onbekende fout bij ophalen afbeelding");
+                    }
                 }
             });
         },
@@ -199,8 +212,21 @@ $(document).ready(function() {
                     overview.books = data;
                     overview.showBooks(data);
                 },
-                error: function (request, error) {
-                    alert("Fout bij ophalen van boeken");
+                error : function(xhr, textStatus, errorThrown ) {
+                    if (textStatus == 'timeout') {
+                        this.tryCount++;
+                        if (this.tryCount <= this.retryLimit) {
+                            //try again
+                            $.ajax(this);
+                            return;
+                        }
+                        return;
+                    }
+                    if (xhr.status == 500) {
+                        alert("Error: status 500 bij ophalen boeken");
+                    } else {
+                        alert("Error: onbekende fout bij ophalen boeken");
+                    }
                 }
             });
         },
@@ -352,6 +378,4 @@ $(document).ready(function() {
                 break;
         }
     }, false);
-
 });
-
