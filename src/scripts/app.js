@@ -220,6 +220,30 @@ $(document).ready(function() {
         }, 400 );
     });
 
+    window.addEventListener('keydown', function(event) {
+        switch (event.keyCode) {
+            case 37: // Left => dislike
+                $(".tag_1").addClass("rotate-right");
+                setTimeout(function() {
+                    var item = $(".rotate-right");
+                    swipe.dislike(item);
+                }, 400 );
+                break;
+
+            case 39: // Right => like
+                $(".tag_1").addClass("rotate-left");
+                setTimeout(function() {
+                    var item = $(".rotate-left");
+                    swipe.like(item);
+                }, 400 );
+                break;
+
+            case 27: // Esc => close detail
+                overview.removeDetail();
+                break;
+        }
+    }, false);
+
 
 
 });
