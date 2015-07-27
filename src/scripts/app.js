@@ -4,6 +4,10 @@
  */
 $(document).ready(function() {
 
+    /**
+     * Swipe controller
+     * @type {{images: {}, index: number, liked: Array, disliked: Array, init: Function, getImages: Function, getImage: Function, addImage: Function, setIndex: Function, checkLikes: Function, reset: Function, like: Function, dislike: Function, tinder: Function}}
+     */
     var swipe = {
         images : {},
         index : 0,
@@ -14,6 +18,12 @@ $(document).ready(function() {
             swipe.getImages();
         },
 
+        /**
+         * Get images
+         * Save tags
+         * Add 3 images for init
+         * Init tinder module
+         */
         getImages : function() {
             jQuery.ajax({
                 url: "api/questions.json",
@@ -34,6 +44,10 @@ $(document).ready(function() {
             });
         },
 
+        /**
+         * Get the next image
+         * @returns {null|*}
+         */
         getImage : function() {
             if(swipe.index >= swipe.images.length) {
                 image = null;
@@ -46,6 +60,9 @@ $(document).ready(function() {
             return image;
         },
 
+        /**
+         * Add an image to the stack
+         */
         addImage : function() {
             var data = swipe.getImage();
 
@@ -57,6 +74,9 @@ $(document).ready(function() {
             swipe.setIndex();
         },
 
+        /**
+         * Calculate z-index on stack
+         */
         setIndex : function() {
             $(".stack ul").children().each(function(i) {
                 $(this).removeClass().addClass("tag_" + (i + 1));
@@ -64,6 +84,9 @@ $(document).ready(function() {
             });
         },
 
+        /**
+         * Check likes
+         */
         checkLikes : function() {
             if(swipe.liked.length == 3) {
                 overview.getBooks();
@@ -74,6 +97,9 @@ $(document).ready(function() {
             }
         },
 
+        /**
+         * Reset and reinit
+         */
         reset : function() {
             swipe.images = {};
             swipe.index = 0;
@@ -85,6 +111,10 @@ $(document).ready(function() {
             page.showPage(1);
         },
 
+        /**
+         * Like tag
+         * @param item
+         */
         like : function(item) {
             var id = $(item).data("id");
             swipe.liked.push(id);
@@ -94,6 +124,10 @@ $(document).ready(function() {
             swipe.tinder();
         },
 
+        /**
+         * Dislike tag
+         * @param item
+         */
         dislike : function(item) {
             var id = $(item).data("id");
             swipe.disliked.push(id);
@@ -102,6 +136,9 @@ $(document).ready(function() {
             swipe.tinder();
         },
 
+        /**
+         * Tinder plugin
+         */
         tinder : function() {
             $(".stack").jTinder({
                 onDislike: function (item) {
@@ -120,11 +157,19 @@ $(document).ready(function() {
     };
 
 
+    /**
+     * Overview controller
+     * @type {{books: {}, index: number, booksPerPage: number, getBooks: Function, showBooks: Function, showDetail: Function, removeDetail: Function}}
+     */
     var overview = {
         books : {},
         index : 0,
         booksPerPage : 8,
 
+        /**
+         * Get the recommendations
+         * Save all the books
+         */
         getBooks : function() {
             var likes = swipe.liked.join();
             var dislikes = swipe.disliked.join();
@@ -144,12 +189,20 @@ $(document).ready(function() {
             });
         },
 
+        /**
+         * Show the overview
+         * @param data
+         */
         showBooks : function(data) {
             data = data.slice(0, overview.booksPerPage);
             var handlebars = Handlebars.templates['overview-template'];
             $(".books").append(handlebars(data));
         },
 
+        /**
+         * Show details popup
+         * @param id
+         */
         showDetail : function(id) {
             $(".books, header").addClass("blur", 200);
             $(".details").fadeIn(200);
@@ -160,6 +213,9 @@ $(document).ready(function() {
             $(".overlay").append(handlebars(book));
         },
 
+        /**
+         * Remove details popup
+         */
         removeDetail : function() {
             $(".books, header").removeClass("blur", 200);
             $(".details").fadeOut(200);
@@ -167,6 +223,10 @@ $(document).ready(function() {
         }
     };
 
+    /**
+     * Page controller
+     * @type {{startpage: number, currentpage: number, init: Function, showPage: Function}}
+     */
     var page = {
         startpage : 1,
         currentpage: 1,
@@ -178,6 +238,10 @@ $(document).ready(function() {
             swipe.init();
         },
 
+        /**
+         * Change page
+         * @param newpage
+         */
         showPage : function (newpage) {
             $("[data-page=" + page.currentpage +"]").fadeOut(300);
             $("[data-page=" + newpage +"]").fadeIn(300);
@@ -188,38 +252,67 @@ $(document).ready(function() {
 
     page.init();
 
-    $(document).on("click touchstart", ".back", function() {
-        swipe.reset();
+    /**
+     * Event handler
+     */
+
+    // Dislike button
+    $(document).on('touchstart click', '#dislike', function(event){
+        event.stopPropagation();
+        event.preventDefault();
+        if(event.handled !== true) {
+
+            $(".tag_1").addClass("rotate-right");
+            setTimeout(function() {
+                var item = $(".rotate-right");
+                swipe.dislike(item);
+            }, 400 );
+
+            event.handled = true;
+        } else {
+            return false;
+        }
     });
 
-    $(document).on("click touchstart", ".book", function() {
-        overview.showDetail($(this).data("index"));
+    // Like button
+    $(document).on('touchstart click', '#like', function(event){
+        event.stopPropagation();
+        event.preventDefault();
+        if(event.handled !== true) {
+
+            $(".tag_1").addClass("rotate-left");
+            setTimeout(function() {
+                var item = $(".rotate-left");
+                swipe.like(item);
+            }, 400 );
+
+            event.handled = true;
+        } else {
+            return false;
+        }
     });
 
-    $(document).on("click touchstart", ".close", function() {
-        overview.removeDetail();
-    });
-
+    // Prevent touch move
     document.ontouchmove = function(event){
         event.preventDefault();
     };
 
-    $(document).on("click touchstart", "#dislike", function() {
-        $(".tag_1").addClass("rotate-right");
-        setTimeout(function() {
-            var item = $(".rotate-right");
-            swipe.dislike(item);
-        }, 400 );
+    // Back button
+    $(document).on("click touchstart", ".back", function() {
+        swipe.reset();
     });
 
-    $(document).on("click touchstart", "#like", function() {
-        $(".tag_1").addClass("rotate-left");
-        setTimeout(function() {
-            var item = $(".rotate-left");
-            swipe.like(item);
-        }, 400 );
+    // Show detail overlay
+    $(document).on("click touchstart", ".book", function() {
+        overview.showDetail($(this).data("index"));
     });
 
+    // Hide detail overlay
+    $(document).on("click touchstart", ".close", function() {
+        overview.removeDetail();
+    });
+
+    // Keyboard shortcuts
     window.addEventListener('keydown', function(event) {
         switch (event.keyCode) {
             case 37: // Left => dislike
@@ -243,8 +336,6 @@ $(document).ready(function() {
                 break;
         }
     }, false);
-
-
 
 });
 
