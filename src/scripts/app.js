@@ -32,7 +32,7 @@ $(document).ready(function() {
                 type:"GET",
                 dataType: "json",
                 success: function(data) {
-                    swipe.images = data;
+                    swipe.images = swipe.shuffle(data);
 
                     for(var i = 0; i < 3; i++) {
                         swipe.addImage();
@@ -44,6 +44,16 @@ $(document).ready(function() {
                     alert("Fout bij ophalen van afbeeldingen");
                 }
             });
+        },
+
+        /**
+         * Shuffle array object
+         * @param data
+         * @returns {*}
+         */
+        shuffle : function(data){
+            for(var j, x, i = data.length; i; j = Math.floor(Math.random() * i), x = data[--i], data[i] = data[j], data[j] = x);
+            return data;
         },
 
         /**
