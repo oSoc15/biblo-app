@@ -60,43 +60,10 @@
         </main>
     </section>
 
-<script id="tag-template" type="x-handlebars-template">​
-    <li data-id="{{ id }}">
-        <figure style="background-image: url('{{ url }}');"></figure>
-    </li>
-</script>
-
-<script id="overview-template" type="x-handlebars-template">​
-    {{#each this}}
-    <div class="book" data-index="{{ @key }}">
-        <figure style="background-image: url('{{ coverimage }}');"></figure>
-    </div>
-    {{/each}}
-</script>
-
-<script id="detail-template" type="x-handlebars-template">​
-    <div class="container">
-        <div class="sidebar">
-            <figure style="background-image: url('{{ coverimage }}');"></figure>
-        </div>
-
-        <div class="maincontent">
-            <div class="close" id="close">
-                <img src="img/icon-close.svg" alt="Sluiten">
-            </div>
-            <h1>{{ title }}</h1>
-            <p>{{ description }}</p>
-            <div class="meta">
-                <span class="author"><strong>Auteur</strong> {{ author }}</span>
-                <span class="genre"><strong>Genre</strong> {{ genres }}</span>
-            </div>
-        </div>
-    </div>
-</script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script>if (!window.jQuery) { document.write('<script src="js/jquery.min.js"><\/script>'); }</script>
 
-<script type="text/javascript" src="js/handlebars.min.js"></script>
+<script type="text/javascript" src="js/handlebars.runtime.min.js"></script>
 <script type="text/javascript" src="js/main.min.js"></script>
 
 </body>
