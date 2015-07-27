@@ -61,7 +61,7 @@
 
             z-index: 1;
 
-            padding: $spacing3 0 0 0;
+            padding: $spacing2 0 0 0;
 
             .container {
                 padding: 0 10px;
@@ -72,8 +72,13 @@
 
                     img {
                         float: right;
-                        width: 22px;
-                        height: 22px;
+                        width: 42px;
+                        height: 42px;
+                        border: 1px solid darken($color-blue, 5);
+                        background: rgba($color-blue, .4);
+                        padding: 10px;
+                        border-radius: 50%;
+                        margin: -30px -30px 0;
                     }
                 }
 
@@ -83,6 +88,10 @@
 
                     figure {
                         @include box-shadow($book-big-w, $book-big-h);
+                    }
+
+                    #delete {
+                        display: none;
                     }
                 }
 
@@ -94,7 +103,7 @@
 
                     h1 {
                         line-height: 1.8;
-                        margin-top: -15px;
+                        margin: -15px 0 10px;
                     }
 
                     .meta {
@@ -108,7 +117,39 @@
                             padding-right: 10px;
                         }
                         span:nth-child(2) {
-                            margin-left: $spacing3;
+                            //margin-left: $spacing3;
+                        }
+
+                        .author, .genre {
+                            width: 50%;
+                            height: 22px;
+                            float: left;
+                            display: block;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+
+                        .icon-author {
+                            display: inline-block;
+
+                            background: url("../img/icon-author.svg") no-repeat;
+                            width: 18px;
+                            height: 18px;
+                            background-size: 18px 18px;
+
+                            margin: 0 10px -3px 0;
+                        }
+
+                        .icon-genre {
+                            display: inline-block;
+
+                            background: url("../img/icon-tag.svg") no-repeat;
+                            width: 18px;
+                            height: 18px;
+                            background-size: 18px 18px;
+
+                            margin: 0 10px -3px 0;
                         }
                     }
                 }
