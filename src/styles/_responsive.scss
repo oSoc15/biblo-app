@@ -3,8 +3,25 @@
         overflow: visible;
         overflow-x: hidden;
     }
-    .overview main .book {
-        width: 33%;
+    .overview main {
+        .book {
+            width: 33%;
+        }
+
+        .overlay .container {
+            .sidebar {
+                width: 40%;
+                max-width: $book-big-w + $spacing3;
+            }
+
+            .maincontent {
+                width: 60%;
+
+                .close {
+                    margin: -20px 30px 0 0;
+                }
+            }
+        }
     }
 }
 @media only screen and (max-width: 720px) {

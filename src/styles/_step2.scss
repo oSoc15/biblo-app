@@ -98,7 +98,7 @@
 
                 .maincontent {
                     width: $container-w - $book-big-w - $spacing2;
-                    height: $book-big-h;
+                    min-height: $book-big-h;
                     position: relative;
                     float: left;
 
