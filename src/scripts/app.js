@@ -6,7 +6,9 @@ $(document).ready(function() {
 
     /**
      * Swipe controller
-     * @type {{images: {}, index: number, liked: Array, disliked: Array, init: Function, getImages: Function, getImage: Function, addImage: Function, setIndex: Function, checkLikes: Function, reset: Function, like: Function, dislike: Function, tinder: Function}}
+     * @type {{images: {}, index: number, liked: Array, disliked: Array, init: Function, getImages: Function,
+     * getImage: Function, addImage: Function, setIndex: Function, checkLikes: Function, reset: Function, like:
+     * Function, dislike: Function, tinder: Function}}
      */
     var swipe = {
         images : {},
@@ -41,20 +43,7 @@ $(document).ready(function() {
                     swipe.tinder();
                 },
                 error : function(xhr, textStatus, errorThrown ) {
-                    if (textStatus == 'timeout') {
-                        this.tryCount++;
-                        if (this.tryCount <= this.retryLimit) {
-                            //try again
-                            $.ajax(this);
-                            return;
-                        }
-                        return;
-                    }
-                    if (xhr.status == 500) {
-                        alert("Error: status 500 bij ophalen afbeelding");
-                    } else {
-                        alert("Error: onbekende fout bij ophalen afbeelding");
-                    }
+                    alert("Error: fout bij ophalen afbeelding. Code: " + xhr.status);
                 }
             });
         },
@@ -188,7 +177,8 @@ $(document).ready(function() {
 
     /**
      * Overview controller
-     * @type {{books: {}, index: number, booksPerPage: number, getBooks: Function, showBooks: Function, showDetail: Function, removeDetail: Function}}
+     * @type {{books: {}, index: number, booksPerPage: number, getBooks: Function, showBooks: Function,
+     * showDetail: Function, removeDetail: Function}}
      */
     var overview = {
         books : {},
@@ -200,8 +190,8 @@ $(document).ready(function() {
          * Save all the books
          */
         getBooks : function() {
-            var likes = swipe.liked.join();
-            var dislikes = swipe.disliked.join();
+            var likes = overview.removeComma(swipe.liked.join());
+            var dislikes = overview.removeComma(swipe.disliked.join());
             var url = "http://api.bieblo.be/API/recommendations?likes=" + likes + "&dislikes=" + dislikes;
 
             jQuery.ajax({
@@ -209,26 +199,27 @@ $(document).ready(function() {
                 type:"GET",
                 dataType: "json",
                 success: function(data) {
-                    overview.books = data;
-                    overview.showBooks(data);
+                    if(data == "unavailable") {
+                        page.showPage(1);
+                    }
+                    else {
+                        overview.books = data;
+                        overview.showBooks(data);
+                    }
+
                 },
                 error : function(xhr, textStatus, errorThrown ) {
-                    if (textStatus == 'timeout') {
-                        this.tryCount++;
-                        if (this.tryCount <= this.retryLimit) {
-                            //try again
-                            $.ajax(this);
-                            return;
-                        }
-                        return;
-                    }
-                    if (xhr.status == 500) {
-                        alert("Error: status 500 bij ophalen boeken");
-                    } else {
-                        alert("Error: onbekende fout bij ophalen boeken");
+                    console.log("Error: fout bij ophalen boeken. Code: " + xhr.status);
+                    if(xhr.status == 404) {
+                        alert("Bibnet service niet beschikbaar. Probeer opnieuw.");
+                        page.showPage(1);
                     }
                 }
             });
+        },
+
+        removeComma : function(str) {
+            return str.replace(/,(\s+)?$/, '');
         },
 
         /**
