@@ -94,17 +94,13 @@
             // Dislike & like buttons
             &#dislike {
                 position: absolute;
-                left:250px;
-                top:50%;
-                //float:left;
+                margin: -290px 0 0 -220px;
                 background: $color-dislike;
                 border: 1px solid darken($color-dislike, 10);
             }
             &#like {
                 position: absolute;
-                right:250px;
-                top:50%;
-                //float:right;
+                margin: -290px 0 0 430px;
                 background: $color-like;
                 border: 1px solid darken($color-like, 10);
             }
