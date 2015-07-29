@@ -55,6 +55,28 @@
                     background-color: $color-no-cover;
                 }
 
+                .delete {
+                    border:1px solid $color-blue;
+                    background:rgba($color-blue, 0.4);
+                    padding:10px;
+                    border-radius:50%;
+                    position:absolute;
+                    width:42px;
+                    height:42px;
+                    bottom:7px;
+                    right:7px;
+                    z-index:999;
+
+                    img {
+                        position:relative;
+                        left:0;
+                        top:0;
+                        min-width: 16px !important;
+                        min-height: 16px !important;
+                    }
+
+                }
+
                 @include box-shadow($book-w, $book-h);
 
                 // Cover background for optimal view
