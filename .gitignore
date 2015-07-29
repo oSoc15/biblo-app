@@ -44,3 +44,6 @@ build
 
 ### DS store ###
 .DS_Store
+
+### compiled handlebars ###
+src/scripts/templates.js
