@@ -15,16 +15,17 @@
 
         .icon-container {
             float: right;
-            padding: 5px;
-            border: 1px solid rgba($color-white, 80);
-            border-radius: $border-radius;
-            margin: -6px 0 0 0;
+            margin: -2px 0 0 0;
 
             img {
+                border: 1px solid rgba($color-white, 80);
+                border-radius: 50%;
                 padding:0 10px;
                 float: right;
                 width: 38px;
-                height: 33px;
+                height: 38px;
+                margin: 0 0 0 10px;
+
             }
         }
     }
@@ -43,6 +44,7 @@
                     min-height: $book-h;
                     max-height:$book-h;
                     max-width: $book-w;
+                    border-radius: $border-radius;
                 }
 
                 .title {
@@ -57,32 +59,29 @@
                     color: $color-white;
                     letter-spacing: 1px;
                     background-color: $color-no-cover;
+                    border-radius: $border-radius;
+                    overflow: hidden;
                 }
 
                 .delete {
-                    border:1px solid orange;
-                    background:orange;
-                    padding:7px;
                     position:absolute;
-                    border-radius:50%;
-                    //border-bottom-left-radius: $border-radius;
-                    width:36px;
-                    height:36px;
-                    //top:0;
-                    //right:0;
                     top:-10px;
                     right:-10px;
-                    z-index:999;
+                    width:38px;
+                    height:38px;
+                    padding:10px;
+                    background: $color-blue;
                     box-shadow: -2px 2px 4px rgba($color-black, 0.3);
+                    border:1px solid darken($color-blue, 10);
+                    border-radius:50%;
 
                     img {
-                        position:relative;
-                        left:0;
-                        top:0;
-                        min-width: 13px !important;
-                        min-height: 13px !important;
+                        width: 16px;
+                        height: 16px;
+                        min-width: 0;
+                        min-height: 0;
+                        opacity: .9;
                     }
-
                 }
 
                 @include box-shadow($book-w, $book-h);
@@ -93,7 +92,6 @@
                 // Center absolute div
                 left: 50%;
                 margin-left: -($book-w/2);
-
 
                 // Insert book edge
                 @include book-edge();
