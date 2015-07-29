@@ -38,16 +38,16 @@
                 }
 
                 .title {
-                    font-size: 22px;
-                    line-height: 1.8;
-                    padding: 20px;
-                    height: 100%;
-                    color: #fff;
-                    letter-spacing: 1px;
-                    background-color: #EAC725;
                     position: absolute;
                     top: 0;
                     z-index: -1;
+                    padding: 20px;
+                    height: 100%;
+                    font-size: 22px;
+                    line-height: 1.8;
+                    color: $color-white;
+                    letter-spacing: 1px;
+                    background-color: $color-no-cover;
                 }
 
                 @include box-shadow($book-w, $book-h);
