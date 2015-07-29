@@ -200,6 +200,7 @@ $(document).ready(function() {
                 dataType: "json",
                 success: function(data) {
                     if(data == "unavailable") {
+                        alert("Bibnet service niet beschikbaar. Probeer opnieuw.");
                         page.showPage(1);
                     }
                     else {
@@ -336,7 +337,7 @@ $(document).ready(function() {
     });
 
     // Show detail overlay
-    $(document).on("click touchstart", ".book", function() {
+    $(document).on("click touchstart", ".book figure", function() {
         overview.showDetail($(this).data("index"));
     });
 
