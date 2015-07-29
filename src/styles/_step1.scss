@@ -104,3 +104,25 @@
         }
     }
 }
+
+.bg-liked {
+    animation-name: bg-liked;
+    animation-duration: 1s;
+}
+
+.bg-disliked {
+    animation-name: bg-disliked;
+    animation-duration: 1s;
+}
+
+@keyframes bg-liked {
+    0% { background: rgba($color-blue, 1); }
+    25% { background: rgba(mix($color-like, $color-blue, 85%), .5); }
+    100% { background: rgba($color-blue, 1); }
+}
+
+@keyframes bg-disliked {
+    0% { background: rgba($color-blue, 1); }
+    25% { background: rgba(mix($color-dislike, $color-blue, 85%), .5); }
+    100% { background: rgba($color-blue, 1); }
+}

@@ -135,6 +135,7 @@ $(document).ready(function() {
         like : function(item) {
             var id = $(item).data("id");
             swipe.liked.push(id);
+            swipe.animateBackground("like");
             swipe.checkSwipes();
             $(item).remove();
             swipe.addImage();
@@ -148,10 +149,29 @@ $(document).ready(function() {
         dislike : function(item) {
             var id = $(item).data("id");
             swipe.disliked.push(id);
+            swipe.animateBackground("dislike");
             swipe.checkSwipes();
             $(item).remove();
             swipe.addImage();
             swipe.tinder();
+        },
+
+        animateBackground : function(color) {
+            if(color == "like") {
+                $("body").addClass("bg-liked");
+
+                setTimeout(function () {
+                    $("body").removeClass("bg-liked");
+                }, 400);
+            }
+
+            if(color == "dislike") {
+                $("body").addClass("bg-disliked");
+
+                setTimeout(function () {
+                    $("body").removeClass("bg-disliked");
+                }, 400);
+            }
         },
 
         /**
