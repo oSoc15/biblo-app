@@ -115,6 +115,50 @@
                     #delete {
                         display: none;
                     }
+
+                    .icon-print {
+                        display: inline-block;
+
+                        background: url("../img/icon-print.svg") no-repeat;
+                        width: 18px;
+                        height: 18px;
+                        background-size: 18px 18px;
+
+                        margin: 0 10px -3px 0;
+                    }
+
+                    #print, #email {
+                        color:$color-white;
+                        width:120px;
+                        display:inline-block;
+                        margin:10px 0 0 35px;
+                        border:1px solid darken($color-blue, 20);
+                        background-color: rgba($color-blue, .30);
+                        padding:10px;
+                        border-radius:5px;
+
+
+                    }
+
+                    #print {
+                        margin-left:0;
+                    }
+
+                    #email {
+
+                    }
+
+                    .icon-email {
+                        display: inline-block;
+
+                        background: url("../img/icon-email.svg") no-repeat;
+                        width: 18px;
+                        height: 18px;
+                        background-size: 18px 18px;
+
+                        margin: 0 10px -3px 0;
+                    }
+
                 }
 
                 .maincontent {
