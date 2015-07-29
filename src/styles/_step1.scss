@@ -116,13 +116,31 @@
 }
 
 @keyframes bg-liked {
-    0% { background: rgba($color-blue, 1); }
-    25% { background: rgba(mix($color-like, $color-blue, 85%), .5); }
-    100% { background: rgba($color-blue, 1); }
+    0% {
+        background: rgba($color-blue, 1);
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
+    }
+    25% {
+        background: rgba(mix($color-like, $color-blue, 85%), .5);
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
+    }
+    100% {
+        background: rgba($color-blue, 1);
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
+    }
 }
 
 @keyframes bg-disliked {
-    0% { background: rgba($color-blue, 1); }
-    25% { background: rgba(mix($color-dislike, $color-blue, 85%), .5); }
-    100% { background: rgba($color-blue, 1); }
+    0% {
+        background: rgba($color-blue, 1);
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
+    }
+    25% {
+        background: rgba(mix($color-dislike, $color-blue, 85%), .5);
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
+    }
+    100% {
+        background: rgba($color-blue, 1);
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
+    }
 }

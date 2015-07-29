@@ -162,7 +162,7 @@ $(document).ready(function() {
 
                 setTimeout(function () {
                     $("body").removeClass("bg-liked");
-                }, 400);
+                }, 1000);
             }
 
             if(color == "dislike") {
@@ -170,7 +170,7 @@ $(document).ready(function() {
 
                 setTimeout(function () {
                     $("body").removeClass("bg-disliked");
-                }, 400);
+                }, 1000);
             }
         },
 
