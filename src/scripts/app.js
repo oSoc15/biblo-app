@@ -274,6 +274,14 @@ $(document).ready(function() {
             $(".books, header").removeClass("blur", 200);
             $(".details").fadeOut(200);
             $(".overlay").fadeOut(200).empty();
+        },
+
+        print : function() {
+            alert("Printen! Leuk! Enal! Enzo!");
+        },
+
+        showEmail : function() {
+            alert("Email enzo");
         }
     };
 
@@ -351,11 +359,6 @@ $(document).ready(function() {
         event.preventDefault();
     };
 
-    // Back button
-    $(document).on("click touchstart", ".back", function() {
-        swipe.reset();
-    });
-
     // Show detail overlay
     $(document).on("click touchstart", ".book figure", function() {
         overview.showDetail($(this).data("index"));
@@ -390,4 +393,19 @@ $(document).ready(function() {
                 break;
         }
     }, false);
+
+    // Back button
+    $(document).on("click touchstart", ".icon-home", function() {
+        swipe.reset();
+    });
+
+    // Print button
+    $(document).on("click touchstart", ".icon-print", function() {
+        overview.print();
+    });
+
+    // E-mail button
+    $(document).on("click touchstart", ".icon-email", function() {
+        overview.showEmail();
+    });
 });
