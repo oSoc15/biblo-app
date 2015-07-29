@@ -6,10 +6,14 @@
             <div class="delete"> <img src="img/icon-close.svg" alt="X" class="delete-image"> </div>
         </figure>
         <div class="print">
-            <img src="{{ coverimage }}" alt="" />
-            <div class="title">{{ title }}</div>
-            <div class="author"><strong>Auteur</strong> {{ author }}</div>
-            <div class="genre"><strong>Genre</strong> {{ genres }}</div>
+            <div class="img">
+                <img src="{{ coverimage }}" alt="" />
+            </div>
+            <div class="content">
+                <div class="title">{{ title }}</div>
+                <div class="author"><strong>Auteur</strong> {{ author }}</div>
+                <div class="genre"><strong>Genre</strong> {{ genres }}</div>
+            </div>
         </div>
     </div>
 {{/each}}

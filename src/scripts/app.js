@@ -277,7 +277,7 @@ $(document).ready(function() {
         },
 
         print : function() {
-            alert("Printen! Leuk! Enal! Enzo!");
+            window.print()
         },
 
         showEmail : function() {
@@ -290,6 +290,12 @@ $(document).ready(function() {
         sendEmail : function() {
             var email = $("input[type=email]").val()
             alert("Hallo " + email);
+            overview.closeEmail();
+        },
+
+        closeEmail : function() {
+            $(".books, header").removeClass("blur", 200);
+            $(".email-popup").fadeOut();
         }
     };
 
