@@ -224,6 +224,7 @@ $(document).ready(function() {
                         page.showPage(1);
                     }
                     else {
+                        overview.index = overview.booksPerPage;
                         overview.books = data;
                         overview.showBooks(data);
                     }
@@ -296,6 +297,33 @@ $(document).ready(function() {
         closeEmail : function() {
             $(".books, header").removeClass("blur", 200);
             $(".email-popup").fadeOut();
+        },
+
+        switchBook : function(id) {
+            overview.index++;
+            var index = overview.spliceArray(id);
+
+            overview.books[index] = overview.books[overview.index];
+
+            $(".books").empty();
+
+            data = overview.books.slice(0, overview.booksPerPage);
+            var handlebars = Handlebars.templates['overview-template'];
+            $(".books").append(handlebars(data));
+
+            if(overview.books.length == overview.index) {
+                console.log("alle boeken gewisseld");
+            }
+        },
+
+        spliceArray : function(index) {
+            for (var key in overview.books) {
+                if (key == index) {
+                    //overview.books.splice(key, 1);
+                    overview.books[key] = null;
+                    return key;
+                }
+            }
         }
     };
 
@@ -424,6 +452,15 @@ $(document).ready(function() {
     });
     $(document).on("click", "input[type=button]", function() {
         overview.sendEmail();
+    });
+
+    // Switch book
+    $(document).on("click", ".delete", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        var id = $(this).closest("figure").data("index");
+        overview.switchBook(id);
+        return false;
     });
 
 });
