@@ -158,7 +158,7 @@ $(document).ready(function() {
 
         animateBackground : function(color) {
             if(color == "like") {
-                $("body").addClass("bg-liked");
+                $("body").removeClass().addClass("bg-liked");
 
                 setTimeout(function () {
                     $("body").removeClass("bg-liked");
@@ -166,7 +166,7 @@ $(document).ready(function() {
             }
 
             if(color == "dislike") {
-                $("body").addClass("bg-disliked");
+                $("body").removeClass().addClass("bg-disliked");
 
                 setTimeout(function () {
                     $("body").removeClass("bg-disliked");
