@@ -278,6 +278,10 @@ $(document).ready(function() {
 
         print : function() {
             alert("Printen! Leuk! Enal! Enzo!");
+        },
+
+        showEmail : function() {
+            alert("Email enzo");
         }
     };
 
@@ -398,5 +402,10 @@ $(document).ready(function() {
     // Print button
     $(document).on("click touchstart", ".icon-print", function() {
         overview.print();
+    });
+
+    // E-mail button
+    $(document).on("click touchstart", ".icon-email", function() {
+        overview.showEmail();
     });
 });
