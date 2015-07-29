@@ -13,6 +13,7 @@
         margin: $spacing2 0;
         height: $tag-h;
 
+
         li {
             list-style: none;
             position: absolute;
@@ -92,12 +93,18 @@
 
             // Dislike & like buttons
             &#dislike {
-                float: left;
+                position: absolute;
+                left:250px;
+                top:50%;
+                //float:left;
                 background: $color-dislike;
                 border: 1px solid darken($color-dislike, 10);
             }
             &#like {
-                float: right;
+                position: absolute;
+                right:250px;
+                top:50%;
+                //float:right;
                 background: $color-like;
                 border: 1px solid darken($color-like, 10);
             }
