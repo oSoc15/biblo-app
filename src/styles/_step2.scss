@@ -4,6 +4,8 @@
  */
 
 .overview {
+    position: relative;
+
     header {
         padding: 0 10px;
 
@@ -194,5 +196,43 @@
         filter: blur(10px);
         color: transparent;
         text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+}
+
+.email-popup {
+    background: $color-blue;
+    padding: $spacing3;
+    border-radius: $border-radius;
+    border: 1px solid darken($color-blue, 20);
+    max-width: 380px;
+    position: absolute;
+    left: 50%;
+    top: 30vh;
+    margin-left: -((380px/2)-40px);
+
+    h1 {
+        color: $color-white;
+        font-size: $paragraph;
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px 15px;
+        border: 1px solid darken($color-blue, 20);
+        border-radius: $border-radius;
+        outline: none;
+        font-size: $paragraph - 2px;
+    }
+
+    input[type=email] {
+        background: $color-white;
+        margin-bottom: 15px;
+    }
+
+    input[type=button] {
+        background: $color-blue;
+        color: $color-white;
+        font-weight: bold;
     }
 }

@@ -233,7 +233,7 @@ $(document).ready(function() {
                     console.log("Error: fout bij ophalen boeken. Code: " + xhr.status);
                     if(xhr.status == 404) {
                         alert("Bibnet service niet beschikbaar. Probeer opnieuw.");
-                        page.showPage(1);
+                        swipe.reset();
                     }
                 }
             });
@@ -281,7 +281,15 @@ $(document).ready(function() {
         },
 
         showEmail : function() {
-            alert("Email enzo");
+            var handlebars = Handlebars.templates['email-template'];
+            $(".overview").append(handlebars());
+            $(".books, header").addClass("blur", 200);
+            $(".overview").fadeIn(200);
+        },
+
+        sendEmail : function() {
+            var email = $("input[type=email]").val()
+            alert("Hallo " + email);
         }
     };
 
@@ -400,12 +408,16 @@ $(document).ready(function() {
     });
 
     // Print button
-    $(document).on("click touchstart", ".icon-print", function() {
+    $(document).on("click", ".icon-print", function() {
         overview.print();
     });
 
     // E-mail button
-    $(document).on("click touchstart", ".icon-email", function() {
+    $(document).on("click", ".icon-email", function() {
         overview.showEmail();
     });
+    $(document).on("click", "input[type=button]", function() {
+        overview.sendEmail();
+    });
+
 });
