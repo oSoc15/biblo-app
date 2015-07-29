@@ -29,6 +29,27 @@
             margin: 0 0 20px;
 
             figure {
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    min-width: $book-w;
+                    min-height: $book-h;
+                }
+
+                .title {
+                    font-size: 22px;
+                    line-height: 1.8;
+                    padding: 20px;
+                    height: 100%;
+                    color: #fff;
+                    letter-spacing: 1px;
+                    background-color: #EAC725;
+                    position: absolute;
+                    top: 0;
+                    z-index: -1;
+                }
+
                 @include box-shadow($book-w, $book-h);
 
                 // Cover background for optimal view
