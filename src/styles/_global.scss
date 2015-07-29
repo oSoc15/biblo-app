@@ -58,6 +58,12 @@ header {
             font-weight: 600;
         }
     }
+
+    p {
+        color: $color-white;
+        padding-top: 10px;
+        text-shadow: 1px 1px 1.5px rgba($color-black, 0.15);
+    }
 }
 
 
