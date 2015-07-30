@@ -137,3 +137,40 @@
     linear-gradient(to right, rgba(255,103,83,1) 0%, rgba(255,103,83,0.4) 50%, rgba(255,103,83,0) 100%);
     transition: .3s all;
 }
+
+.bg-liked2 {
+    animation-name: bg-liked;
+    animation-duration: 1s;
+}
+
+.bg-disliked2 {
+    animation-name: bg-disliked;
+    animation-duration: 1s;
+}
+
+@keyframes bg-liked {
+    0% {
+        background-image:   radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
+    }
+    25% {
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%),
+        linear-gradient(to right, rgba(97,221,118,0) 0%, rgba(97,221,118,0.4) 20%, rgba(97,221,118,1) 100%);
+    }
+    100% {
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 30%, rgba(255,255,255,0.00) 98%);
+    }
+}
+
+@keyframes bg-disliked {
+    0% {
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
+    }
+    25% {
+        background: rgba(mix($color-dislike, $color-blue, 85%), .5);
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%),
+        linear-gradient(to right, rgba(255,103,83,1) 0%, rgba(255,103,83,0.4) 40%, rgba(255,103,83,0) 100%);
+    }
+    100% {
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
+    }
+}
