@@ -10,8 +10,8 @@
             animationRevertSpeed: 200,
             animationSpeed: 400,
             threshold: 1,
-            likeSelector: '.like',
-            dislikeSelector: '.dislike'
+            likeSelector: 'bg-liked',
+            dislikeSelector: 'bg-disliked'
         };
 
     var container = null;
@@ -112,13 +112,18 @@
                         if(opa > 1.0) {
                             opa = 1.0;
                         }
-                        if (posX >= 0) {
-                            panes.eq(current_pane).find($that.settings.likeSelector).css('opacity', opa);
-                            panes.eq(current_pane).find($that.settings.dislikeSelector).css('opacity', 0);
-                        } else if (posX < 0) {
-
-                            panes.eq(current_pane).find($that.settings.dislikeSelector).css('opacity', opa);
-                            panes.eq(current_pane).find($that.settings.likeSelector).css('opacity', 0);
+                        if (posX > 10) {
+                            $("body").fadeIn("fast", function() {
+                                $("span#like").addClass("zoom");
+                                $(this).addClass("bg-liked").removeClass("bg-disliked");
+                            });
+                        } else if (posX < -10) {
+                            $("span#dislike").addClass("zoom");
+                            $("body").addClass("bg-disliked").removeClass("bg-liked");
+                        }
+                        else {
+                            $("span#like, span#dislike").removeClass("zoom");
+                            $("body").removeClass();
                         }
                     }
                     break;
@@ -133,6 +138,9 @@
                     posX = deltaX + lastPosX;
                     posY = deltaY + lastPosY;
                     var opa = Math.abs((Math.abs(deltaX) / $that.settings.threshold) / 100 + 0.2);
+
+                    $("span#like, span#dislike").removeClass("zoom");
+                    $("body").removeClass();
 
                     if (opa >= 1) {
                         if (posX > 0) {

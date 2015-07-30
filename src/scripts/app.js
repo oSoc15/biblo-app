@@ -182,21 +182,21 @@ $(document).ready(function() {
         },
 
         animateBackground : function(color) {
-            if(color == "like") {
-                $("body").removeClass().addClass("bg-liked");
-
-                setTimeout(function () {
-                    $("body").removeClass("bg-liked");
-                }, 1000);
-            }
-
-            if(color == "dislike") {
-                $("body").removeClass().addClass("bg-disliked");
-
-                setTimeout(function () {
-                    $("body").removeClass("bg-disliked");
-                }, 1000);
-            }
+            //if(color == "like") {
+            //    $("body").removeClass().addClass("bg-liked");
+            //
+            //    setTimeout(function () {
+            //        $("body").removeClass("bg-liked");
+            //    }, 1000);
+            //}
+            //
+            //if(color == "dislike") {
+            //    $("body").removeClass().addClass("bg-disliked");
+            //
+            //    setTimeout(function () {
+            //        $("body").removeClass("bg-disliked");
+            //    }, 1000);
+            //}
         },
 
         /**
@@ -390,13 +390,11 @@ $(document).ready(function() {
         event.stopPropagation();
         event.preventDefault();
         if(event.handled !== true) {
-
             $(".tag_1").addClass("rotate-right");
             setTimeout(function() {
                 var item = $(".rotate-right");
                 swipe.dislike(item);
             }, 400 );
-
             event.handled = true;
         } else {
             return false;
@@ -408,13 +406,11 @@ $(document).ready(function() {
         event.stopPropagation();
         event.preventDefault();
         if(event.handled !== true) {
-
             $(".tag_1").addClass("rotate-left");
             setTimeout(function() {
                 var item = $(".rotate-left");
                 swipe.like(item);
             }, 400 );
-
             event.handled = true;
         } else {
             return false;

@@ -25,6 +25,7 @@
     }
 }
 @media only screen and (max-width: 800px) {
+
     .swipe {
         .controls {
             span {
@@ -36,6 +37,18 @@
 
                 &#like {
                     float: right;
+                    margin: 0 0 0 210px;
+                }
+
+                &#dislike.zoom {
+                    width: $button-w;
+                    height: $button-h;
+                    margin: 0;
+                }
+
+                &#like.zoom {
+                    width: $button-w;
+                    height: $button-h;
                     margin: 0 0 0 210px;
                 }
             }
@@ -79,6 +92,17 @@
 
                 &#like {
                     float: right;
+                    margin: 0 0 0 170px;
+                }
+
+                &#dislike.zoom {
+                    width: 70px;
+                    height: 70px;
+                }
+
+                &#like.zoom {
+                    width: 70px;
+                    height: 70px;
                     margin: 0 0 0 170px;
                 }
             }

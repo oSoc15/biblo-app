@@ -91,6 +91,10 @@
 
             box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.20);
 
+            z-index: -2;
+
+            transition: .3s all;
+
             // Dislike & like buttons
             &#dislike {
                 position: absolute;
@@ -104,44 +108,32 @@
                 background: $color-like;
                 border: 1px solid darken($color-like, 10);
             }
+
+            &#dislike.zoom {
+                width: $button-w + 30px;
+                height: $button-h + 30px;
+                margin: -305px 0 0 -235px;
+                transition: .3s all;
+            }
+
+            &#like.zoom {
+                width: $button-w + 30px;
+                height: $button-h + 30px;
+                margin: -305px 0 0 415px;
+                transition: .3s all;
+            }
         }
     }
 }
 
-
 .bg-liked {
-    animation-name: bg-liked;
-    animation-duration: 1s;
+    background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%),
+    linear-gradient(to right, rgba(97,221,118,0) 0%, rgba(97,221,118,0.4) 50%, rgba(97,221,118,1) 100%);
+    transition: .3s all;
 }
 
 .bg-disliked {
-    animation-name: bg-disliked;
-    animation-duration: 1s;
-}
-
-@keyframes bg-liked {
-    0% {
-        background-image:   radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
-    }
-    25% {
-        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%),
-        linear-gradient(to right, rgba(97,221,118,0) 0%, rgba(97,221,118,0.4) 20%, rgba(97,221,118,1) 100%);
-    }
-    100% {
-        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 30%, rgba(255,255,255,0.00) 98%);
-    }
-}
-
-@keyframes bg-disliked {
-    0% {
-        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
-    }
-    25% {
-        background: rgba(mix($color-dislike, $color-blue, 85%), .5);
-        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%),
-        linear-gradient(to right, rgba(255,103,83,1) 0%, rgba(255,103,83,0.4) 40%, rgba(255,103,83,0) 100%);
-    }
-    100% {
-        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
-    }
+    background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%),
+    linear-gradient(to right, rgba(255,103,83,1) 0%, rgba(255,103,83,0.4) 50%, rgba(255,103,83,0) 100%);
+    transition: .3s all;
 }
