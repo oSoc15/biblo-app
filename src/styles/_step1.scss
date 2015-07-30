@@ -96,8 +96,6 @@
 
             border-radius: 50%;
 
-            box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.20);
-
             z-index: 0;
 
             transition: .3s all;
@@ -107,23 +105,39 @@
                 position: absolute;
                 margin: -290px 0 0 -220px;
                 background: $color-dislike;
-                border: 1px solid darken($color-dislike, 10);
+                border: 1px solid darken($color-dislike, 30);
+                box-shadow: 0px 3px 0px 0px rgba(darken($color-dislike, 30),.7);
+                transition: .1s all;
             }
             &#like {
                 position: absolute;
                 margin: -290px 0 0 430px;
                 background: $color-like;
-                border: 1px solid darken($color-like, 10);
+                border: 1px solid darken($color-like, 30);
+                box-shadow: 0px 3px 0px 0px rgba(darken($color-like, 30),.7);
+                transition: .1s all;
             }
 
-            &#dislike.zoom {
+            &#like:hover, &#like:focus, &#like:active {
+                box-shadow: 0px -2px 0px 0px rgba(darken($color-like, 30),.7);
+                outline: none;
+                transition: .1s all;
+            }
+
+            &#dislike:hover, &#dislike:focus, &#dislike:active {
+                box-shadow: 0px -2px 0px 0px rgba(darken($color-dislike, 30),.7);
+                outline: none;
+                transition: .1s all;
+            }
+
+            &#dislike.zoom, &#dislike:hover, &#dislike:focus, &#dislike:active {
                 width: $button-w + 30px;
                 height: $button-h + 30px;
                 margin: -305px 0 0 -235px;
                 transition: .3s all;
             }
 
-            &#like.zoom {
+            &#like.zoom, &#like:hover, &#like:focus, &#like:active {
                 width: $button-w + 30px;
                 height: $button-h + 30px;
                 margin: -305px 0 0 415px;

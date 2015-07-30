@@ -39,13 +39,13 @@
                     margin: 0 0 0 210px;
                 }
 
-                &#dislike.zoom {
+                &#dislike.zoom, &#dislike:hover, &#dislike:focus, &#dislike:active {
                     width: $button-w;
                     height: $button-h;
                     margin: 0;
                 }
 
-                &#like.zoom {
+                &#like.zoom, &#like:hover, &#like:focus, &#like:active {
                     width: $button-w;
                     height: $button-h;
                     margin: 0 0 0 210px;
@@ -110,12 +110,12 @@
                     margin: 0 0 0 170px;
                 }
 
-                &#dislike.zoom {
+                &#dislike.zoom, &#dislike:hover, &#dislike:focus, &#dislike:active {
                     width: 70px;
                     height: 70px;
                 }
 
-                &#like.zoom {
+                &#like.zoom, &#like:hover, &#like:focus, &#like:active {
                     width: 70px;
                     height: 70px;
                     margin: 0 0 0 170px;
@@ -157,104 +157,3 @@
         }
     }
 }
-//// And now: duust media queries from Wesley
-//@media screen and (min-width:320px) and (max-width:501px){
-//    .overview {
-//        header {
-//            padding:0;
-//            margin-bottom:50px;
-//
-//            h1 {
-//
-//                text-align:center;
-//                float:none;
-//                margin-bottom:15px;
-//            }
-//
-//            .icon-container {
-//                float:none;
-//                position: absolute;
-//                left:33%;
-//            }
-//        }
-//    }
-//
-//}
-//@media screen and (min-width:501px) and (max-width:569px){
-//    .overview {
-//        header {
-//            padding:0;
-//            margin-bottom:50px;
-//
-//            h1 {
-//
-//                text-align:center;
-//                float:none;
-//                margin-bottom:15px;
-//            }
-//
-//            .icon-container {
-//                float:none;
-//                position: absolute;
-//                left:33.3%;
-//            }
-//        }
-//    }
-//}
-//@media screen and (min-width:570px) and (max-width:626px){
-//    .overview {
-//        header {
-//            padding:0;
-//            margin-bottom:50px;
-//
-//            h1 {
-//                float:left;
-//                margin-left:5%;
-//            }
-//
-//            .icon-container {
-//                float:right;
-//                margin-right:5%;
-//
-//            }
-//        }
-//    }
-//}
-//@media screen and (min-width:627px) and (max-width:720px){
-//    .overview {
-//        header {
-//            padding:0;
-//            margin-bottom:50px;
-//
-//            h1 {
-//                float:left;
-//                margin-left:7%;
-//            }
-//
-//            .icon-container {
-//                float:right;
-//                margin-right:7%;
-//
-//            }
-//        }
-//    }
-//}
-//@media screen and (min-width:720px) and (max-width:980px){
-//    .overview {
-//        header {
-//            padding:0;
-//            margin-bottom:50px;
-//
-//            h1 {
-//                float:left;
-//                margin-left:3.5%;
-//            }
-//
-//            .icon-container {
-//                float:right;
-//                margin-right:3.5%;
-//
-//            }
-//        }
-//    }
-//}
