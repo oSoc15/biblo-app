@@ -72,7 +72,7 @@
                     padding:10px;
                     background: $color-blue;
                     box-shadow: -2px 2px 4px rgba($color-black, 0.3);
-                    border:1px solid darken($color-blue, 10);
+                    border:1px solid darken($color-blue, 5);
                     border-radius:50%;
 
                     img {
@@ -265,41 +265,75 @@
         text-shadow: 0 0 5px rgba(0,0,0,0.5);
     }
 }
+.email-overlay {
+    position: fixed;
 
-.email-popup {
-    background: $color-blue;
-    padding: $spacing3;
-    border-radius: $border-radius;
-    border: 1px solid darken($color-blue, 20);
-    max-width: 380px;
-    position: absolute;
-    left: 50%;
-    top: 30vh;
-    margin-left: -((380px/2)-40px);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-    h1 {
-        color: $color-white;
-        font-size: $paragraph;
-        margin-bottom: 20px;
-    }
+    background: rgba($color-white,.5);
 
-    input {
-        width: 100%;
-        padding: 10px 15px;
-        border: 1px solid darken($color-blue, 20);
-        border-radius: $border-radius;
-        outline: none;
-        font-size: $paragraph - 2px;
-    }
+    width: 100vw;
+    height: 100vh;
 
-    input[type=email] {
-        background: $color-white;
-        margin-bottom: 15px;
-    }
+    z-index: 1;
 
-    input[type=button] {
+    .email-popup {
         background: $color-blue;
-        color: $color-white;
-        font-weight: bold;
+        padding: $spacing3;
+        border-radius: $border-radius;
+        border: 1px solid darken($color-blue, 5);
+        max-width: 380px;
+        position: absolute;
+        left: 50%;
+        top: 30vh;
+        margin-left: -((380px/2)-40px);
+
+        .close {
+            float: right;
+            margin: 2px 0 0 0;
+
+            img {
+                float: right;
+                width: 42px;
+                height: 42px;
+                border: 1px solid darken($color-blue, 5);
+                background: rgba($color-blue, 1);
+                padding: 10px;
+                border-radius: 50%;
+                margin: -50px -50px 0;
+                box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.20);
+            }
+        }
+
+        h1 {
+            color: $color-white;
+            font-size: $paragraph;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid darken($color-blue, 5);
+            border-radius: $border-radius;
+            outline: none;
+            font-size: $paragraph - 2px;
+        }
+
+        input[type=email] {
+            background: $color-white;
+            margin-bottom: 15px;
+        }
+
+        input[type=button] {
+            background: darken($color-blue, 5);
+            border: 1px solid darken($color-blue, 10);
+            color: $color-white;
+            font-weight: bold;
+            text-shadow: 1px 1px 1.5px rgba($color-black, 0.15);
+        }
     }
 }
