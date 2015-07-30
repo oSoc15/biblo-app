@@ -58,9 +58,9 @@
                     line-height: 1.8;
                     color: $color-white;
                     letter-spacing: 1px;
-                    background-color: $color-no-cover;
                     border-radius: $border-radius;
                     overflow: hidden;
+
                 }
 
                 .delete {
@@ -95,6 +95,48 @@
 
                 // Insert book edge
                 @include book-edge();
+            }
+
+            // Dif. color per book
+            &:nth-child(1) {
+                .title {
+                    background: #F44336;
+                }
+            }
+            &:nth-child(2) {
+                .title {
+                    background: #9C27B0;
+                }
+            }
+            &:nth-child(3) {
+                .title {
+                    background: #3F51B5;
+                }
+            }
+            &:nth-child(4) {
+                .title {
+                    background: #00BCD4;
+                }
+            }
+            &:nth-child(5) {
+                .title {
+                    background: #009688;
+                }
+            }
+            &:nth-child(6) {
+                .title {
+                    background: #8BC34A;
+                }
+            }
+            &:nth-child(7) {
+                .title {
+                    background: #FF9800;
+                }
+            }
+            &:nth-child(8) {
+                .title {
+                    background: #607D8B;
+                }
             }
         }
 
