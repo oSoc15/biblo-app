@@ -98,7 +98,7 @@
 
             z-index: 0;
 
-            transition: .3s all;
+            transition: .1s all;
 
             // Dislike & like buttons
             &#dislike {
@@ -134,14 +134,14 @@
                 width: $button-w + 30px;
                 height: $button-h + 30px;
                 margin: -305px 0 0 -235px;
-                transition: .3s all;
+                transition: .1s all;
             }
 
             &#like.zoom, &#like:hover, &#like:focus, &#like:active {
                 width: $button-w + 30px;
                 height: $button-h + 30px;
                 margin: -305px 0 0 415px;
-                transition: .3s all;
+                transition: .1s all;
             }
         }
     }
