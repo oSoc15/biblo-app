@@ -289,9 +289,30 @@ $(document).ready(function() {
         },
 
         sendEmail : function() {
-            var email = $("input[type=email]").val()
+            var email = $("input[type=email]").val();
             alert("Hallo " + email);
             overview.closeEmail();
+
+            var form = $(".email-popup form");
+
+
+
+            $.ajax({
+                url: 'api/email',
+                contentType: 'application/json',
+                type: "POST",
+                data: {"email": email, "books": overview.books},
+                dataType: 'json',
+                success: function(data){
+                    form.empty();
+                    form.append("<p>U krijgt zo dadelijk een mail met uw boekenlijst</p>");
+                },
+                error: function(){
+                    form.empty();
+                    form.append("<p>Er is iets mis gegaan. Gelieve contact op te nemen met de beheerder.</p>")
+                }
+
+            })
         },
 
         closeEmail : function() {
