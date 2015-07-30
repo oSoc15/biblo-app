@@ -336,14 +336,15 @@ $(document).ready(function() {
                 dataType: 'json',
                 success: function(data){
                     form.empty();
-                    form.append("<p>U krijgt zo dadelijk een mail met uw boekenlijst</p>");
+                    form.append("<p>Je krijgt zodadelijk een e-mail met jouw lijstje.</p>");
                     setTimeout(function() {
                         overview.closeEmail()
                     }, 5000);
                 },
-                error: function(){
+                error: function(xhr, textStatus, errorThrown){
+                    console.log("Error: fout e-mailen. Code: " + xhr.status);
                     form.empty();
-                    form.append("<p>Er is iets mis gegaan. Gelieve contact op te nemen met de beheerder.</p>");
+                    form.append("<p>Er is iets mis gegaan met het e-mailen.</p>");
                     setTimeout(function() {
                         overview.closeEmail()
                     }, 5000);
