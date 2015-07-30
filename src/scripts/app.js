@@ -19,7 +19,6 @@ $(document).ready(function() {
         maxswipes : 5,
         checkBooks : false,
 
-
         init : function() {
             swipe.getImages();
         },
@@ -105,10 +104,6 @@ $(document).ready(function() {
          */
         checkSwipes : function() {
             swipe.swipes = swipe.swipes + 1;
-            //console.log("Check: " + swipe.checkBooks);
-            //console.log("Swi  pes: " + parseInt(swipe.swipes));
-            //console.log("Liked: " + parseInt(swipe.liked.length));
-            //console.log("Images: " + parseInt(swipe.images.length));
 
             /**
              * Get books after 3 likes or after 5 swipes
@@ -179,6 +174,10 @@ $(document).ready(function() {
             swipe.tinder();
         },
 
+        /**
+         * Animate background on like and dislike
+         * @param color
+         */
         animateBackground : function(color) {
             if(color == "like") {
                 $("body").removeClass().addClass("bg-liked2");
@@ -263,6 +262,11 @@ $(document).ready(function() {
             });
         },
 
+        /**
+         * Remove the last comma of a string
+         * @param str
+         * @returns {XML|void|string}
+         */
         removeComma : function(str) {
             return str.replace(/,(\s+)?$/, '');
         },
@@ -300,10 +304,16 @@ $(document).ready(function() {
             $(".overlay").fadeOut(200).empty();
         },
 
+        /**
+         * Print function
+         */
         print : function() {
             window.print()
         },
 
+        /**
+         * Show e-mail popup
+         */
         showEmail : function() {
             var handlebars = Handlebars.templates['email-template'];
             $(".overview").append(handlebars());
@@ -311,6 +321,9 @@ $(document).ready(function() {
             $(".overview").fadeIn(200);
         },
 
+        /**
+         * Send e-mail with all the books
+         */
         sendEmail : function() {
             var email = $("input[type=email]").val();
             var form = $(".email-popup form");
@@ -338,6 +351,9 @@ $(document).ready(function() {
             })
         },
 
+        /**
+         * Close the e-mail popup
+         */
         closeEmail : function() {
             $(".books, header").removeClass("blur", 200);
             $(".email-overlay").fadeOut(function() {
@@ -345,6 +361,10 @@ $(document).ready(function() {
             });
         },
 
+        /**
+         * Switch a book
+         * @param id
+         */
         switchBook : function(id) {
             overview.index++;
             var index = overview.spliceArray(id);
@@ -362,6 +382,11 @@ $(document).ready(function() {
             }
         },
 
+        /**
+         * Delete item from object
+         * @param index
+         * @returns {string}
+         */
         spliceArray : function(index) {
             for (var key in overview.books) {
                 if (key == index) {
