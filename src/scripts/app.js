@@ -455,12 +455,11 @@ $(document).ready(function() {
     });
 
     // Switch book
-    $(document).on("click", ".delete", function(event) {
+    $(document).on("click", ".book .delete", function(event) {
         event.stopPropagation();
         event.preventDefault();
         var id = $(this).closest("figure").data("index");
         overview.switchBook(id);
         return false;
     });
-
 });
