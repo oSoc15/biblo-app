@@ -452,13 +452,8 @@ $(document).ready(function() {
         }
     });
 
-    // Prevent touch move
-    document.ontouchmove = function(event){
-        event.preventDefault();
-    };
-
     // Show detail overlay
-    $(document).on("touchstart click", ".book figure", function(event){
+    $(document).on("touchend click", ".book figure", function(event){
         event.stopPropagation();
         event.preventDefault();
 
