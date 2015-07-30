@@ -444,13 +444,35 @@ $(document).ready(function() {
     };
 
     // Show detail overlay
-    $(document).on("click touchstart", ".book figure", function() {
-        overview.showDetail($(this).data("index"));
+    $(document).on("touchstart click", ".book figure", function(event){
+        event.stopPropagation();
+        event.preventDefault();
+
+        var element = $(this);
+
+        if(event.handled !== true) {
+            setTimeout(function() {
+                overview.showDetail($(element).data("index"));
+            }, 400 );
+            event.handled = true;
+        } else {
+            return false;
+        }
     });
 
     // Hide detail overlay
-    $(document).on("click touchstart", ".close", function() {
-        overview.removeDetail();
+    $(document).on("touchstart click", ".close", function(event){
+        event.stopPropagation();
+        event.preventDefault();
+
+        if(event.handled !== true) {
+            setTimeout(function() {
+                overview.removeDetail();
+            }, 400 );
+            event.handled = true;
+        } else {
+            return false;
+        }
     });
 
     // Keyboard shortcuts
@@ -479,29 +501,77 @@ $(document).ready(function() {
     }, false);
 
     // Back button
-    $(document).on("click touchstart", ".icon-home", function() {
-        swipe.reset();
+    $(document).on("touchstart click", ".icon-home", function(event){
+        event.stopPropagation();
+        event.preventDefault();
+
+        if(event.handled !== true) {
+            setTimeout(function() {
+                swipe.reset();
+            }, 400 );
+            event.handled = true;
+        } else {
+            return false;
+        }
     });
 
     // Print button
-    $(document).on("click", ".icon-print", function() {
-        overview.print();
+    $(document).on("touchstart click", ".icon-print", function(event){
+        event.stopPropagation();
+        event.preventDefault();
+
+        if(event.handled !== true) {
+            setTimeout(function() {
+                overview.print();
+            }, 400 );
+            event.handled = true;
+        } else {
+            return false;
+        }
     });
 
     // E-mail button
-    $(document).on("click", ".icon-email", function() {
-        overview.showEmail();
+    $(document).on("touchstart click", ".icon-email", function(event){
+        event.stopPropagation();
+        event.preventDefault();
+
+        if(event.handled !== true) {
+            setTimeout(function() {
+                overview.showEmail();
+            }, 400 );
+            event.handled = true;
+        } else {
+            return false;
+        }
     });
-    $(document).on("click", "input[type=button]", function() {
-        overview.sendEmail();
+    $(document).on("touchstart click", "input[type=button]", function(event){
+        event.stopPropagation();
+        event.preventDefault();
+
+        if(event.handled !== true) {
+            setTimeout(function() {
+                overview.sendEmail();
+            }, 400 );
+            event.handled = true;
+        } else {
+            return false;
+        }
     });
 
     // Switch book
-    $(document).on("click", ".book .delete", function(event) {
+    $(document).on("touchstart click", ".book .delete", function(event){
         event.stopPropagation();
         event.preventDefault();
-        var id = $(this).closest("figure").data("index");
-        overview.switchBook(id);
-        return false;
+
+        var element = $(this);
+        if(event.handled !== true) {
+            setTimeout(function() {
+                var id = $(element).closest("figure").data("index");
+                overview.switchBook(id);
+            }, 400 );
+            event.handled = true;
+        } else {
+            return false;
+        }
     });
 });
