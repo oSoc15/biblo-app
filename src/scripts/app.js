@@ -16,6 +16,8 @@ $(document).ready(function() {
         liked : [],
         disliked : [],
         swipes : 0,
+        maxswipes : 5,
+        checkBooks : false,
 
 
         init : function() {
@@ -103,12 +105,34 @@ $(document).ready(function() {
          */
         checkSwipes : function() {
             swipe.swipes = swipe.swipes + 1;
+            //console.log("Check: " + swipe.checkBooks);
+            //console.log("Swi  pes: " + parseInt(swipe.swipes));
+            //console.log("Liked: " + parseInt(swipe.liked.length));
+            //console.log("Images: " + parseInt(swipe.images.length));
 
-            if(parseInt(swipe.swipes) == 3) {
+            /**
+             * Get books after 3 likes or after 5 swipes
+             */
+            if(parseInt(swipe.liked.length) == 3 && swipe.checkBooks == false) {
                 overview.getBooks();
+                swipe.checkBooks = true;
+            }
+            else if(parseInt(swipe.liked.length) < 3 && parseInt(swipe.swipes) == parseInt(swipe.maxswipes) && swipe.checkBooks == false) {
+                overview.getBooks();
+                swipe.checkBooks = true;
             }
 
+            /**
+             * Go to page 2 if all images are swiped
+             */
             if(parseInt(swipe.swipes) == parseInt(swipe.images.length)) {
+                page.showPage(2);
+            }
+
+            /**
+             * Go to page 2 if swipe.maxswipes likes
+             */
+            if(parseInt(swipe.liked.length) == parseInt(swipe.maxswipes)) {
                 page.showPage(2);
             }
         },
@@ -122,6 +146,7 @@ $(document).ready(function() {
             swipe.liked = [];
             swipe.disliked = [];
             swipe.swipes = 0;
+            swipe.checkBooks = false;
             $(".stack ul").empty();
             $(".books").empty();
             swipe.init();
