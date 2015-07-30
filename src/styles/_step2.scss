@@ -61,6 +61,15 @@
                     border-radius: $border-radius;
                     overflow: hidden;
 
+                    animation-name: showDelay;
+                    animation-duration: 1s;
+                    animation-delay: 4s;
+                    animation-iteration-count: 1;
+                }
+
+                @keyframes showDelay {
+                    from {display: none}
+                    to {display: block}
                 }
 
                 .delete {
@@ -184,6 +193,7 @@
 
                     figure {
                         @include box-shadow($book-big-w, $book-big-h);
+                        background: $color-yellow;
                     }
 
                     #delete {

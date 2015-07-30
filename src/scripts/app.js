@@ -366,35 +366,23 @@ $(document).ready(function() {
          * @param id
          */
         switchBook : function(id) {
-            overview.index++;
-            var index = overview.spliceArray(id);
-
-            overview.books[index] = overview.books[overview.index];
-
-            $(".books").empty();
-
-            data = overview.books.slice(0, overview.booksPerPage);
-            var handlebars = Handlebars.templates['overview-template'];
-            $(".books").append(handlebars(data));
-
             if(overview.books.length == overview.index) {
-                console.log("alle boeken gewisseld");
+                alert("Alle boeken zijn op");
+            }
+            else {
+                overview.index++;
+
+                var book = $("figure[data-index=" + id + "]").parent();
+
+                $("figure[data-index=" + id + "]").parent().empty();
+
+                data = overview.books[overview.index];
+                var handlebars = Handlebars.templates["book-template"];
+                $(book).append(handlebars(data));
+
+                $(book).children("figure").attr("data-index", id);
             }
         },
-
-        /**
-         * Delete item from object
-         * @param index
-         * @returns {string}
-         */
-        spliceArray : function(index) {
-            for (var key in overview.books) {
-                if (key == index) {
-                    overview.books[key] = null;
-                    return key;
-                }
-            }
-        }
     };
 
     /**

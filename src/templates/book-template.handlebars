@@ -1,19 +1,17 @@
-<div class="book">
-    <figure data-index="{{ index }}">
+<figure>
+    <img src="{{ coverimage }}" alt="" />
+    <div class="title">{{ title }}</div>
+    <div class="delete">
+        <img src="img/icon-refresh.svg" alt="X" class="delete-image">
+    </div>
+</figure>
+<div class="print">
+    <div class="img">
         <img src="{{ coverimage }}" alt="" />
+    </div>
+    <div class="content">
         <div class="title">{{ title }}</div>
-        <div class="delete">
-            <img src="img/icon-refresh.svg" alt="X" class="delete-image">
-        </div>
-    </figure>
-    <div class="print">
-        <div class="img">
-            <img src="{{ coverimage }}" alt="" />
-        </div>
-        <div class="content">
-            <div class="title">{{ title }}</div>
-            <div class="author"><strong>Auteur</strong> {{ author }}</div>
-            <div class="genre"><strong>Genre</strong> {{ genres }}</div>
-        </div>
+        <div class="author"><strong>Auteur</strong> {{ author }}</div>
+        <div class="genre"><strong>Genre</strong> {{ genres }}</div>
     </div>
 </div>
