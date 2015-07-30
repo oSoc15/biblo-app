@@ -418,6 +418,15 @@ $(document).ready(function() {
      * Event handler
      */
 
+    // Touch move
+    var dragging = false;
+    $("body").on("touchmove", function(){
+        dragging = true;
+    });
+    $("body").on("touchstart", function(){
+        dragging = false;
+    });
+
     // Dislike button
     $(document).on('touchstart click', '#dislike', function(event){
         event.stopPropagation();
@@ -457,15 +466,17 @@ $(document).ready(function() {
         event.stopPropagation();
         event.preventDefault();
 
-        var element = $(this);
+        if(!dragging) {
+            var element = $(this);
 
-        if(event.handled !== true) {
-            setTimeout(function() {
-                overview.showDetail($(element).data("index"));
-            }, 400 );
-            event.handled = true;
-        } else {
-            return false;
+            if(event.handled !== true) {
+                setTimeout(function() {
+                    overview.showDetail($(element).data("index"));
+                }, 400 );
+                event.handled = true;
+            } else {
+                return false;
+            }
         }
     });
 
@@ -581,19 +592,21 @@ $(document).ready(function() {
     });
 
     // Switch book
-    $(document).on("touchstart click", ".book .delete", function(event){
+    $(document).on("touchend click", ".book .delete", function(event){
         event.stopPropagation();
         event.preventDefault();
 
-        var element = $(this);
-        if(event.handled !== true) {
-            setTimeout(function() {
-                var id = $(element).closest("figure").data("index");
-                overview.switchBook(id);
-            }, 400 );
-            event.handled = true;
-        } else {
-            return false;
+        if(!dragging) {
+            var element = $(this);
+            if(event.handled !== true) {
+                setTimeout(function() {
+                    var id = $(element).closest("figure").data("index");
+                    overview.switchBook(id);
+                }, 400 );
+                event.handled = true;
+            } else {
+                return false;
+            }
         }
     });
 });
