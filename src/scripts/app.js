@@ -160,7 +160,6 @@ $(document).ready(function() {
         like : function(item) {
             var id = $(item).data("id");
             swipe.liked.push(id);
-            swipe.animateBackground("like");
             swipe.checkSwipes();
             $(item).remove();
             swipe.addImage();
@@ -174,7 +173,6 @@ $(document).ready(function() {
         dislike : function(item) {
             var id = $(item).data("id");
             swipe.disliked.push(id);
-            swipe.animateBackground("dislike");
             swipe.checkSwipes();
             $(item).remove();
             swipe.addImage();
@@ -182,21 +180,21 @@ $(document).ready(function() {
         },
 
         animateBackground : function(color) {
-            //if(color == "like") {
-            //    $("body").removeClass().addClass("bg-liked");
-            //
-            //    setTimeout(function () {
-            //        $("body").removeClass("bg-liked");
-            //    }, 1000);
-            //}
-            //
-            //if(color == "dislike") {
-            //    $("body").removeClass().addClass("bg-disliked");
-            //
-            //    setTimeout(function () {
-            //        $("body").removeClass("bg-disliked");
-            //    }, 1000);
-            //}
+            if(color == "like") {
+                $("body").removeClass().addClass("bg-liked2");
+
+                setTimeout(function () {
+                    $("body").removeClass("bg-liked2");
+                }, 1000);
+            }
+
+            if(color == "dislike") {
+                $("body").removeClass().addClass("bg-disliked2");
+
+                setTimeout(function () {
+                    $("body").removeClass("bg-disliked2");
+                }, 1000);
+            }
         },
 
         /**
@@ -334,7 +332,7 @@ $(document).ready(function() {
                 },
                 error: function(){
                     form.empty();
-                    form.append("<p>Er is iets mis gegaan. Gelieve contact op te nemen met de beheerder.</p>")
+                    form.append("<p>Er is iets mis gegaan. Gelieve contact op te nemen met de beheerder.</p>");
                 }
 
             })
@@ -342,7 +340,7 @@ $(document).ready(function() {
 
         closeEmail : function() {
             $(".books, header").removeClass("blur", 200);
-            $(".email-popup").fadeOut();
+            $(".email-overlay").remove();
         },
 
         switchBook : function(id) {
@@ -365,7 +363,6 @@ $(document).ready(function() {
         spliceArray : function(index) {
             for (var key in overview.books) {
                 if (key == index) {
-                    //overview.books.splice(key, 1);
                     overview.books[key] = null;
                     return key;
                 }
@@ -415,6 +412,7 @@ $(document).ready(function() {
             setTimeout(function() {
                 var item = $(".rotate-right");
                 swipe.dislike(item);
+                swipe.animateBackground("dislike");
             }, 400 );
             event.handled = true;
         } else {
@@ -431,6 +429,7 @@ $(document).ready(function() {
             setTimeout(function() {
                 var item = $(".rotate-left");
                 swipe.like(item);
+                swipe.animateBackground("like");
             }, 400 );
             event.handled = true;
         } else {
@@ -544,13 +543,26 @@ $(document).ready(function() {
             return false;
         }
     });
-    $(document).on("touchstart click", "input[type=button]", function(event){
+    $(document).on("touchstart click", ".email-overlay input[type=button]", function(event){
         event.stopPropagation();
         event.preventDefault();
 
         if(event.handled !== true) {
             setTimeout(function() {
                 overview.sendEmail();
+            }, 400 );
+            event.handled = true;
+        } else {
+            return false;
+        }
+    });
+    $(document).on("touchstart click", ".email-overlay .close img", function(event){
+        event.stopPropagation();
+        event.preventDefault();
+
+        if(event.handled !== true) {
+            setTimeout(function() {
+                overview.closeEmail();
             }, 400 );
             event.handled = true;
         } else {
