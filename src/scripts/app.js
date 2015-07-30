@@ -380,7 +380,7 @@ $(document).ready(function() {
                 var handlebars = Handlebars.templates["book-template"];
                 $(book).append(handlebars(data));
 
-                $(book).children("figure").attr("data-index", id);
+                $(book).children("figure").attr("data-index", overview.index);
             }
         },
     };
