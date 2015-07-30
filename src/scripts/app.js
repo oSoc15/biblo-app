@@ -313,34 +313,36 @@ $(document).ready(function() {
 
         sendEmail : function() {
             var email = $("input[type=email]").val();
-            alert("Hallo " + email);
-            overview.closeEmail();
-
             var form = $(".email-popup form");
 
-
-
             $.ajax({
-                url: 'api/email',
-                contentType: 'application/json',
+                url: "api/email",
+                contentType: "application/json",
                 type: "POST",
                 data: {"email": email, "books": overview.books},
                 dataType: 'json',
                 success: function(data){
                     form.empty();
                     form.append("<p>U krijgt zo dadelijk een mail met uw boekenlijst</p>");
+                    setTimeout(function() {
+                        overview.closeEmail()
+                    }, 5000);
                 },
                 error: function(){
                     form.empty();
                     form.append("<p>Er is iets mis gegaan. Gelieve contact op te nemen met de beheerder.</p>");
+                    setTimeout(function() {
+                        overview.closeEmail()
+                    }, 5000);
                 }
-
             })
         },
 
         closeEmail : function() {
             $(".books, header").removeClass("blur", 200);
-            $(".email-overlay").remove();
+            $(".email-overlay").fadeOut(function() {
+                $(this).remove();
+            });
         },
 
         switchBook : function(id) {
