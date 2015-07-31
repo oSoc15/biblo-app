@@ -24,7 +24,7 @@
                 float: right;
                 width: 38px;
                 height: 38px;
-                margin: 0 0 0 10px;
+                margin: 0 5px;
 
             }
         }
@@ -327,6 +327,7 @@
             border-radius: $border-radius;
             outline: none;
             font-size: $paragraph - 2px;
+            -webkit-appearance: none;
         }
 
         input[type=email] {

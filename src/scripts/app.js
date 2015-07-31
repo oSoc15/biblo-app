@@ -329,7 +329,7 @@ $(document).ready(function() {
             var form = $(".email-popup form");
 
             $.ajax({
-                url: "api/email",
+                url: "http://api.bieblo.be/API/email?email=" + email + "&books=" + overview.books,
                 contentType: "application/json",
                 type: "POST",
                 data: {"email": email, "books": overview.books},

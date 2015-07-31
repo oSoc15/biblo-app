@@ -42,6 +42,11 @@
 
             @include tag-shadow();
 
+            &.tag_1 {
+                figure {
+                    -webkit-transform: translateZ(0);
+                }
+            }
             &.tag_2 {
                 zoom: 90%;
                 margin-top: -20px;
@@ -64,6 +69,7 @@
             figure {
                 @include box-shadow($tag-w, $tag-h);
             }
+
 
             // Fake like dislike animation
             &.rotate-left {
