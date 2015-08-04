@@ -1,0 +1,15 @@
+/**
+ * @author: Shaun Janssens
+ * @copyright: open Summer of code
+ */
+
+.container {
+    max-width: $container-w;
+    min-width: $container-w-min;
+    margin: $spacing2 auto 0 auto;
+}
+
+@mixin col($cols) {
+    width: $cols / 12 * 100%;
+    float: left;
+}

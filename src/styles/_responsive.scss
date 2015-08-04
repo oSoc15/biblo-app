@@ -1,0 +1,159 @@
+@media only screen and (max-width: 980px) {
+    body {
+        overflow-x: hidden;
+    }
+    .overview main {
+        .book {
+            width: 33%;
+        }
+
+        .overlay .container {
+            .sidebar {
+                width: 40%;
+                max-width: $book-big-w + $spacing3;
+            }
+
+            .maincontent {
+                width: 60%;
+
+                .close {
+                    margin: -20px 30px 0 0;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 800px) {
+
+    .swipe {
+        .controls {
+            span {
+                &#dislike {
+                    float: left;
+                    margin: 0;
+
+                }
+
+                &#like {
+                    float: right;
+                    margin: 0 0 0 210px;
+                }
+
+                &#dislike.zoom, &#dislike:hover, &#dislike:focus, &#dislike:active {
+                    width: $button-w;
+                    height: $button-h;
+                    margin: 0;
+                }
+
+                &#like.zoom, &#like:hover, &#like:focus, &#like:active {
+                    width: $button-w;
+                    height: $button-h;
+                    margin: 0 0 0 210px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 720px) {
+    .overview main .book {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 580px) {
+    .overview {
+        header {
+            h1 {
+                float: none;
+                text-align: center;
+            }
+            .icon-container {
+                float: none;
+                display: block;
+                width: 144px;
+                margin: 20px auto 0 auto;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 500px) {
+    .container {
+        margin: 30px auto 0;
+    }
+    h1 {
+        font-size: 22px
+    }
+    .swipe {
+        .stack {
+            height: 300px;
+            margin-bottom: $spacing3;
+
+            li {
+                margin-left: -150px;
+                width: 300px;
+                height: 300px;
+
+                figure {
+                    width: 300px;
+                    height: 300px;
+                }
+            }
+        }
+        .controls {
+            padding: 0 60px;
+
+            span {
+                width: 70px;
+                height: 70px;
+
+                &#like {
+                    float: right;
+                    margin: 0 0 0 170px;
+                }
+
+                &#dislike.zoom, &#dislike:hover, &#dislike:focus, &#dislike:active {
+                    width: 70px;
+                    height: 70px;
+                }
+
+                &#like.zoom, &#like:hover, &#like:focus, &#like:active {
+                    width: 70px;
+                    height: 70px;
+                    margin: 0 0 0 170px;
+                }
+            }
+        }
+    }
+    .overview {
+        main {
+            .book {
+                width: 100%;
+            }
+            .overlay {
+                .container {
+                    .sidebar {
+                        display: none;
+                    }
+
+                    .maincontent {
+                        width: 100%;
+                        height: auto;
+                        padding: 0 0 0 20px;
+
+                        .meta {
+                            position: relative;
+                            margin: 20px 0 0;
+                            span {
+                                display: block;
+                                padding: 5px 0;
+
+                                &:nth-child(2) {
+                                    margin-left: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

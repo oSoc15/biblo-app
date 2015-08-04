@@ -1,0 +1,19 @@
+{
+  "name": "bibnet",
+  "version": "0.0.0",
+  "authors": [
+    "Shaun Janssens <shaunjanssens@gmail.com>"
+  ],
+  "main": "build/index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "handlebars": "~3.0.3"
+  }
+}

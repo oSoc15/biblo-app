@@ -1,0 +1,76 @@
+<!--
+    @author: Shaun Janssens
+    @copyright: open Summer of code
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bieblo</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
+    <link href="css/style.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="img/apple-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Bieblo">
+    <meta name="application-name" content="Bieblo">
+</head>
+<body>
+
+    <section class="page container swipe" id="swipe" data-page="1">
+        <header>
+            <h1>
+                <img src="img/logo-bieblo.svg" alt="Bieblo" />
+            </h1>
+        </header>
+
+        <main>
+            <div class="stack">
+                <ul></ul>
+            </div>
+
+            <div class="controls">
+                <span id="dislike">
+                    <img src="img/icon-dislike.svg" alt="Niet leuk">
+                </span>
+                <span id="like">
+                    <img src="img/icon-like.svg" alt="Leuk">
+                </span>
+            </div>
+        </main>
+    </section>
+
+    <section class="page container overview" id="overview" data-page="2">
+        <header>
+            <h1>Dit zijn jouw <strong>suggesties</strong></h1>
+            <div class="icon-container">
+                <img src="img/icon-home.svg" alt="Terug" class="icon-home">
+                <img src="img/icon-email.svg" alt="Email" class="icon-email">
+                <img src="img/icon-print.svg" alt="Print" class="icon-print">
+            </div>
+        </header>
+
+        <main>
+            <div class="books">
+
+            </div>
+
+            <article class="overlay">
+
+            </article>
+        </main>
+    </section>
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>if (!window.jQuery) { document.write('<script src="js/jquery.min.js"><\/script>'); }</script>
+
+<script type="text/javascript" src="js/handlebars.runtime.min.js"></script>
+<script type="text/javascript" src="js/main.min.js"></script>
+
+</body>
+</html>

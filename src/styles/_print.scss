@@ -1,0 +1,73 @@
+@media print {
+    body {
+        background: #fff;
+    }
+    header {
+        padding: 0 !important;
+    }
+    .container {
+        margin: 0;
+    }
+    h1 {
+        strong {
+            font-weight: inherit !important;
+        }
+    }
+    h1, p {
+        color: #000 !important;
+        text-shadow: none !important;
+    }
+    .book {
+        width: 40% !important;
+        height: 200px;
+    }
+    figure {
+        margin: 0 !important;
+        left: 0 !important;
+    }
+
+    .swipe {
+        display: none !important;
+    }
+    .overview {
+        .icon-container {
+            display: none !important;
+        }
+
+        figure {
+            display: none !important;
+        }
+
+        .overlay {
+            display: none !important;
+        }
+    }
+    .print {
+        display: block;
+
+        .img {
+            width: 30%;
+            float: left;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            float: left;
+            margin-right: 20px;
+            background: #eee;
+            border-radius: 5px;
+        }
+        .content {
+            width: 70%;
+            float: left;
+            padding-left: 10px;
+        }
+        .title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .author {
+            margin-bottom: 10px;
+        }
+    }
+}

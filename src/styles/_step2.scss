@@ -1,0 +1,346 @@
+/**
+ * @author: Shaun Janssens
+ * @copyright: open Summer of code
+ */
+
+.overview {
+    position: relative;
+
+    header {
+        padding: 0 10px;
+
+        h1 {
+            float: left;
+        }
+
+        .icon-container {
+            float: right;
+            margin: -2px 0 0 0;
+
+            img {
+                border: 1px solid rgba($color-white, 80);
+                border-radius: 50%;
+                padding:0 10px;
+                float: right;
+                width: 38px;
+                height: 38px;
+                margin: 0 5px;
+
+            }
+        }
+    }
+
+    main {
+        .book {
+            @include col(3);
+            margin: 0 0 20px;
+
+            figure {
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    min-width: $book-w;
+                    min-height: $book-h;
+                    max-height:$book-h;
+                    max-width: $book-w;
+                    border-radius: $border-radius;
+                }
+
+                .title {
+                    position: absolute;
+                    top: 0;
+                    z-index: -1;
+                    padding: 20px;
+                    height: 100%;
+                    width: 100%;
+                    font-size: 22px;
+                    line-height: 1.8;
+                    color: $color-white;
+                    letter-spacing: 1px;
+                    border-radius: $border-radius;
+                    overflow: hidden;
+
+                    animation-name: showDelay;
+                    animation-duration: 1s;
+                    animation-delay: 4s;
+                    animation-iteration-count: 1;
+                }
+
+                @keyframes showDelay {
+                    from {display: none}
+                    to {display: block}
+                }
+
+                .delete {
+                    position:absolute;
+                    top:-10px;
+                    right:-10px;
+                    width:38px;
+                    height:38px;
+                    padding:10px;
+                    background: rgba($color-yellow, 1);
+                    box-shadow: -2px 2px 4px rgba($color-black, 0.3);
+                    border:1px solid darken($color-yellow, 5);
+                    border-radius:50%;
+
+                    img {
+                        width: 16px;
+                        height: 16px;
+                        min-width: 0;
+                        min-height: 0;
+                        opacity: .9;
+                    }
+                }
+
+                @include box-shadow($book-w, $book-h);
+
+                // Cover background for optimal view
+                background-size: cover;
+
+                // Center absolute div
+                left: 50%;
+                margin-left: -($book-w/2);
+
+                // Insert book edge
+                @include book-edge();
+            }
+
+            // Dif. color per book
+            &:nth-child(1) {
+                .title {
+                    background: #F44336;
+                }
+            }
+            &:nth-child(2) {
+                .title {
+                    background: #9C27B0;
+                }
+            }
+            &:nth-child(3) {
+                .title {
+                    background: #3F51B5;
+                }
+            }
+            &:nth-child(4) {
+                .title {
+                    background: #00BCD4;
+                }
+            }
+            &:nth-child(5) {
+                .title {
+                    background: #009688;
+                }
+            }
+            &:nth-child(6) {
+                .title {
+                    background: #8BC34A;
+                }
+            }
+            &:nth-child(7) {
+                .title {
+                    background: #FF9800;
+                }
+            }
+            &:nth-child(8) {
+                .title {
+                    background: #607D8B;
+                }
+            }
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            background: rgba($color-white,.85);
+
+            width: 100vw;
+            height: 100vh;
+
+            z-index: 1;
+
+            padding: $spacing2 0 0 0;
+
+            .container {
+                padding: 0 10px;
+
+                .close {
+                    float: right;
+                    margin: 2px 0 0 0;
+
+                    img {
+                        float: right;
+                        width: 42px;
+                        height: 42px;
+                        border: 1px solid darken($color-yellow, 5);
+                        background: rgba($color-yellow, .8);
+                        padding: 10px;
+                        border-radius: 50%;
+                        margin: -30px -30px 0;
+                        box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.20);
+                    }
+                }
+
+                .sidebar {
+                    width: $book-big-w + $spacing3;
+                    float: left;
+
+                    figure {
+                        @include box-shadow($book-big-w, $book-big-h);
+                        background: $color-yellow;
+                    }
+
+                    #delete {
+                        display: none;
+                    }
+
+                }
+
+                .maincontent {
+                    width: $container-w - $book-big-w - $spacing2;
+                    position: relative;
+                    float: left;
+
+                    h1 {
+                        line-height: 1.8;
+                        margin: -15px 0 10px;
+                        padding-right: 30px;
+                    }
+
+                    p {
+                        padding-bottom: $spacing3;
+                    }
+
+                    .meta {
+                        width: 100%;
+
+                        strong {
+                            padding-right: 10px;
+                        }
+
+                        .author, .genre {
+                            height: 22px;
+                            display: block;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            margin-bottom: 16px;
+                        }
+
+                        .icon-author {
+                            display: inline-block;
+
+                            background: url("../img/icon-author.svg") no-repeat;
+                            width: 18px;
+                            height: 18px;
+                            background-size: 18px 18px;
+
+                            margin: 0 10px -3px 0;
+                        }
+
+                        .icon-genre {
+                            display: inline-block;
+
+                            background: url("../img/icon-tag.svg") no-repeat;
+                            width: 18px;
+                            height: 18px;
+                            background-size: 18px 18px;
+
+                            margin: 0 10px -3px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .blur {
+        z-index: 0;
+        filter: blur(10px);
+        color: transparent;
+        text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+}
+.email-overlay {
+    position: fixed;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background: rgba($color-white,.5);
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 1;
+
+    .email-popup {
+        background: $color-blue;
+        padding: $spacing3;
+        border-radius: $border-radius;
+        border: 1px solid darken($color-blue, 5);
+        max-width: 380px;
+        position: absolute;
+        left: 50%;
+        top: 30vh;
+        margin-left: -((380px/2)-40px);
+
+        .close {
+            float: right;
+            margin: 2px 0 0 0;
+
+            img {
+                float: right;
+                width: 42px;
+                height: 42px;
+                border: 1px solid darken($color-yellow, 5);
+                background: rgba($color-yellow, 1);
+                padding: 10px;
+                border-radius: 50%;
+                margin: -50px -50px 0;
+                box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.20);
+            }
+        }
+
+        h1 {
+            color: $color-white;
+            font-size: $paragraph;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            color: $color-white;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid darken($color-blue, 5);
+            border-radius: $border-radius;
+            outline: none;
+            font-size: $paragraph - 2px;
+            -webkit-appearance: none;
+        }
+
+        input[type=email] {
+            background: $color-white;
+            margin-bottom: 15px;
+        }
+
+        input[type=button] {
+            background: darken($color-blue, 5);
+            border: 1px solid darken($color-blue, 10);
+            color: $color-white;
+            font-weight: bold;
+            text-shadow: 1px 1px 1.5px rgba($color-black, 0.15);
+        }
+    }
+}

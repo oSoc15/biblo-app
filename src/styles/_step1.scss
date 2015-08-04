@@ -1,0 +1,203 @@
+/**
+ * @author: Shaun Janssens
+ * @copyright: open Summer of code
+ */
+
+.swipe {
+    header {
+        text-align: center;
+        margin: 0 0 $spacing2 + $spacing3;
+
+        img {
+            display: inline-block;
+            height: 40px;
+            padding-left: 5px;
+            margin-bottom: -7px;
+        }
+    }
+
+    .stack {
+        margin: $spacing2 0;
+        height: $tag-h;
+
+
+        li {
+            list-style: none;
+            position: absolute;
+            height: $tag-h;
+            width: $tag-w;
+
+            // Center absolute div
+            left: 50%;
+            margin-left: -($tag-w/2);
+
+            cursor: hand;
+            zoom: 100%;
+
+            overflow: hidden;
+
+            box-sizing: content-box;
+
+            transition: .3s margin-top;
+
+            @include tag-shadow();
+
+            &.tag_1 {
+                figure {
+                    -webkit-transform: translateZ(0);
+                }
+            }
+            &.tag_2 {
+                zoom: 90%;
+                margin-top: -20px;
+                transition: .3s margin-top;
+                transition-delay: .1s;
+            }
+            &.tag_3 {
+                zoom: 80%;
+                margin-top: -43px;
+                transition: .3s all;
+                transition-delay: .4s;
+            }
+            &.tag_4 {
+                zoom: 10%;
+                margin-top: -60px;
+                transition: .5s all;
+                transition-delay: .6s;
+            }
+
+            figure {
+                @include box-shadow($tag-w, $tag-h);
+            }
+
+
+            // Fake like dislike animation
+            &.rotate-left {
+                transform: rotate(30deg) scale(0.8);
+                transition: 1s;
+                margin-left: 400px !important;
+                cursor: e-resize;
+                opacity: 0;
+            }
+            &.rotate-right {
+                transform: rotate(-30deg) scale(0.8);
+                transition: 1s;
+                margin-left: -400px !important;
+                cursor: w-resize;
+                opacity: 0;
+            }
+        }
+    }
+
+    .controls {
+        max-width: $tag-w;
+        margin: 0 auto;
+        padding: 0 $spacing3;
+
+        span {
+            display: block;
+
+            width: $button-w;
+            height: $button-h;
+
+            border-radius: 50%;
+
+            z-index: 0;
+
+            transition: .1s all;
+
+            // Dislike & like buttons
+            &#dislike {
+                position: absolute;
+                margin: -290px 0 0 -220px;
+                background: $color-dislike;
+                border: 1px solid darken($color-dislike, 30);
+                box-shadow: 0px 3px 0px 0px rgba(darken($color-dislike, 30),.7);
+                transition: .1s all;
+            }
+            &#like {
+                position: absolute;
+                margin: -290px 0 0 430px;
+                background: $color-like;
+                border: 1px solid darken($color-like, 30);
+                box-shadow: 0px 3px 0px 0px rgba(darken($color-like, 30),.7);
+                transition: .1s all;
+            }
+
+            &#like:hover, &#like:focus, &#like:active {
+                box-shadow: 0px -2px 0px 0px rgba(darken($color-like, 30),.7);
+                outline: none;
+                transition: .1s all;
+            }
+
+            &#dislike:hover, &#dislike:focus, &#dislike:active {
+                box-shadow: 0px -2px 0px 0px rgba(darken($color-dislike, 30),.7);
+                outline: none;
+                transition: .1s all;
+            }
+
+            &#dislike.zoom, &#dislike:hover, &#dislike:focus, &#dislike:active {
+                width: $button-w + 30px;
+                height: $button-h + 30px;
+                margin: -305px 0 0 -235px;
+                transition: .1s all;
+            }
+
+            &#like.zoom, &#like:hover, &#like:focus, &#like:active {
+                width: $button-w + 30px;
+                height: $button-h + 30px;
+                margin: -305px 0 0 415px;
+                transition: .1s all;
+            }
+        }
+    }
+}
+
+.bg-liked {
+    background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%),
+    linear-gradient(to right, rgba(97,221,118,0) 0%, rgba(97,221,118,0.4) 50%, rgba(97,221,118,1) 100%);
+    transition: .3s all;
+}
+
+.bg-disliked {
+    background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%),
+    linear-gradient(to right, rgba(255,103,83,1) 0%, rgba(255,103,83,0.4) 50%, rgba(255,103,83,0) 100%);
+    transition: .3s all;
+}
+
+.bg-liked2 {
+    animation-name: bg-liked;
+    animation-duration: 1s;
+}
+
+.bg-disliked2 {
+    animation-name: bg-disliked;
+    animation-duration: 1s;
+}
+
+@keyframes bg-liked {
+    0% {
+        background-image:   radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
+    }
+    25% {
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%),
+        linear-gradient(to right, rgba(97,221,118,0) 0%, rgba(97,221,118,0.4) 20%, rgba(97,221,118,1) 100%);
+    }
+    100% {
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 30%, rgba(255,255,255,0.00) 98%);
+    }
+}
+
+@keyframes bg-disliked {
+    0% {
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
+    }
+    25% {
+        background: rgba(mix($color-dislike, $color-blue, 85%), .5);
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%),
+        linear-gradient(to right, rgba(255,103,83,1) 0%, rgba(255,103,83,0.4) 40%, rgba(255,103,83,0) 100%);
+    }
+    100% {
+        background-image: radial-gradient(48% 134%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.00) 98%);
+    }
+}
