@@ -38,3 +38,12 @@ build
 
 ### IDE ###
 .idea/
+
+### Cache ###
+.sass-cache/
+
+### DS store ###
+.DS_Store
+
+### compiled handlebars ###
+src/scripts/templates.js
